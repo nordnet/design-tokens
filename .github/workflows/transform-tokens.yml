@@ -1,0 +1,46 @@
+name: Transform tokens send from figma
+on:
+  repository_dispatch:
+    # the post has event_type property set to 'update-tokens' in the request body
+    types: update-tokens
+jobs:
+  build:
+    name: Transform Figma design tokens for specific platforms
+    runs-on: ubuntu-latest
+    steps:
+      # this lets us work in the actual repository 
+      - uses: actions/checkout@master
+
+      - name: mkdir "tokens" directory
+        run: 'mkdir -p tokens'
+
+      - name: create json from request body
+        id: create-json
+        uses: jsdaniell/create-json@1.1.2
+        with:
+          # use the figma filename that was sent as then filename parameter
+          name: ${{ github.event.client_payload.filename }}
+          # use the json string that was send as the tokens parameter
+          json: ${{ github.event.client_payload.tokens }}
+          dir: 'tokens'
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18
+
+      - name: Install 
+        run: 'npm install'
+
+      - name: Transform design tokens 
+        run: 'npm run transform-tokens'
+
+      - name: Create PR 
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: "Tokens updated"
+          title: "Design tokens updated"
+          body: "Design tokens have been updated via Figma and need to be reviewed."
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH_NAME: 'master'
