@@ -16,7 +16,7 @@ jobs:
 
       - name: create json from request body
         id: create-json
-        uses: jsdaniell/create-json@1.1.2
+        uses: jsdaniell/create-json@1.2.2
         with:
           # use the figma filename that was sent as then filename parameter
           name: ${{ github.event.client_payload.filename }}
