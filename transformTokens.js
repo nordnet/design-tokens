@@ -1,43 +1,27 @@
-const StyleDictionary = require('style-dictionary')
-const baseConfig = require('./config.json')
+const StyleDictionary = require("style-dictionary");
+const assert = require("node:assert");
+const { getConfig } = require("./config");
 
-// StyleDictionary.registerTransform({
-//   name: 'size/px',
-//   type: 'value',
-//   matcher: token => {
-//     return (token.unit === 'pixel' || token.type === 'dimension') && token.value !== 0
-//   },
-//   transformer: token => {
-//     return `${token.value}px`
-//   }
-// })
+const args = process.argv.slice(2).reduce((acc, pairStr) => {
+  const [_key, value] = pairStr.split("=");
+  const key = _key.replace("--", "");
+  return { ...acc, [key]: value };
+}, {});
 
-// StyleDictionary.registerTransform({
-//   name: 'size/percent',
-//   type: 'value',
-//   matcher: token => {
-//     return token.unit === 'percent' && token.value !== 0
-//   },
-//   transformer: token => {
-//     return `${token.value}%`
-//   }
-// })
+assert(args.theme, 'Must provide "--theme" arg');
+const baseConfig = getConfig(args.theme);
 
-// StyleDictionary.registerTransformGroup({
-//   name: 'custom/css',
-//   transforms: StyleDictionary.transformGroup['css'].concat([
-//     'size/px',
-//     'size/percent'
-//   ])
-// })
+console.log(`🤖 Compiling tokens with the ${args.theme.toUpperCase()} theme`);
 
-// StyleDictionary.registerFilter({
-//   name: 'validToken',
-//   matcher: function(token) {
-//     return ['dimension', 'string', 'number', 'color'].includes(token.type)
-//   }
-// })
+StyleDictionary.registerParser({
+  pattern: /\.json$/,
+  parse: ({ contents, filePath }) => {
+    return {
+      color: JSON.parse(contents).color[args.theme],
+    };
+  },
+});
 
-const StyleDictionaryExtended = StyleDictionary.extend(baseConfig)
+const StyleDictionaryExtended = StyleDictionary.extend(baseConfig);
 
-StyleDictionaryExtended.buildAllPlatforms()
+StyleDictionaryExtended.buildAllPlatforms();

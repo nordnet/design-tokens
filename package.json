@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run transform-tokens",
-    "transform-tokens": "node transformTokens.js"
+    "transform-tokens": "node transformTokens.js --theme=light && node transformTokens.js --theme=dark && node transformTokens.js --theme=accessibility"
   },
   "repository": {
     "type": "git",
