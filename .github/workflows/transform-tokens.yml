@@ -14,9 +14,6 @@ jobs:
       - name: mkdir "tokens" directory
         run: "mkdir -p tokens"
 
-      - name: payload
-        run: echo ${{ fromJSON(github.event.client_payload) }}
-
       - name: create json from request body
         id: create-json
         uses: jsdaniell/create-json@v1.2.2
@@ -26,6 +23,11 @@ jobs:
           # use the json string that was send as the tokens parameter
           json: ${{ github.event.client_payload.tokens }}
           dir: "tokens"
+
+      # - name: payload
+      #   run: echo ${{ github.event.client_payload }}
+      - name: file content
+        run: cat tokens/${{ github.event.client_payload.filename }}
 
       - name: Use Node.js 18
         uses: actions/setup-node@v3
