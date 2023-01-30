@@ -14,6 +14,9 @@ jobs:
       - name: mkdir "tokens" directory
         run: "mkdir -p tokens"
 
+      - name: show tokens
+        run: echo ${{ github.event.client_payload.tokens }}
+
       - name: create json from request body
         id: create-json
         uses: jsdaniell/create-json@v1.2.2
@@ -24,8 +27,6 @@ jobs:
           json: ${{ github.event.client_payload.tokens }}
           dir: "tokens"
 
-      # - name: payload
-      #   run: echo ${{ github.event.client_payload }}
       - name: file content
         run: cat tokens/${{ github.event.client_payload.filename }}
 
