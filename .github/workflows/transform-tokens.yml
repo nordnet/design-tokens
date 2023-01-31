@@ -15,7 +15,7 @@ jobs:
         run: "mkdir -p tokens"
 
       - name: show tokens
-        run: echo ${{ github.event.client_payload.tokens }}
+        run: echo ${{ toJson(github.event.client_payload.tokens) }}
 
       - name: create json from request body
         id: create-json
