@@ -47,7 +47,7 @@ jobs:
           commit-message: "Tokens updated"
           title: "Design tokens updated is this working ${{ github.run_number }}"
           body: "Design tokens have been updated via Figma and need to be reviewed."
-          branch: example-patches-${{ github.run_number }}
+          branch: tokens-update-${{ github.run_number }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH_NAME: "master"
