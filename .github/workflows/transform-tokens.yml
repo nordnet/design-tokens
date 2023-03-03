@@ -45,7 +45,7 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           commit-message: ${{github.event.client_payload.commitMessage}}
-          title: "Design tokens updated"
+          title: "Design tokens updated ${{github.event.client_payload.commitMessage}}"
           branch: tokens-update-${{ github.run_number }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
