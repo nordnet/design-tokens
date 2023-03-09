@@ -40,12 +40,24 @@ jobs:
 
       - name: Transform design tokens
         run: "npm run transform-tokens"
+      
+      - name: Commit message
+        run: echo {{ github.event.client_payload.commitMessage }}
 
-      - name: Create PR
+      - name: Create PR with proper commit message
         uses: peter-evans/create-pull-request@v4
+        if: github.event.client_payload.commitMessage != ''
         with:
           commit-message: ${{github.event.client_payload.commitMessage}}
-          title: "Design tokens updated ${{github.event.client_payload.commitMessage}}"
+          title: "Design tokens update ${{github.event.client_payload.commitMessage}}"
+          branch: tokens-update-${{ github.run_number }}
+
+      - name: Create PR with default commit message
+        uses: peter-evans/create-pull-request@v4
+        if: github.event.client_payload.commitMessage == ''
+        with:
+          commit-message: 'Update tokens ${{ github.run_number }}'
+          title: "Design tokens update ${{ github.run_number }}"
           branch: tokens-update-${{ github.run_number }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
