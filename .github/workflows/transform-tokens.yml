@@ -8,8 +8,8 @@ jobs:
     name: Transform Figma design tokens for specific platforms
     runs-on: ubuntu-latest
     steps:
-      # this lets us work in the actual repository
-      - uses: actions/checkout@master
+      - name: Checkout
+        uses: actions/checkout@master
 
       - name: mkdir "tokens" directory
         run: "mkdir -p tokens"
@@ -21,9 +21,9 @@ jobs:
         id: create-json
         uses: jsdaniell/create-json@v1.2.2
         with:
-          # use the figma filename that was sent as then filename parameter
+          # use the figma filename that was sent as the filename parameter
           name: ${{ github.event.client_payload.filename }}
-          # use the json string that was send as the tokens parameter
+          # use the json string that was sent as the tokens parameter
           json: ${{ github.event.client_payload.tokens }}
           dir: "tokens"
 
