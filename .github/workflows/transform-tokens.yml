@@ -49,16 +49,16 @@ jobs:
         if: github.event.client_payload.commitMessage != ''
         with:
           commit-message: ${{github.event.client_payload.commitMessage}}
-          title: "Design tokens update ${{github.event.client_payload.commitMessage}}"
-          branch: tokens-update-${{ github.run_number }}
+          title: "feat: design tokens update ${{github.event.client_payload.commitMessage}}"
+          branch: feat/tokens-update-${{ github.run_number }}
 
       - name: Create PR with default commit message
         uses: peter-evans/create-pull-request@v4
         if: github.event.client_payload.commitMessage == ''
         with:
-          commit-message: 'Update tokens ${{ github.run_number }}'
-          title: "Design tokens update ${{ github.run_number }}"
-          branch: tokens-update-${{ github.run_number }}
+          commit-message: 'Update tokens'
+          title: "feat: design tokens update ${{ github.run_number }}"
+          branch: feat/tokens-update-${{ github.run_number }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH_NAME: "master"
