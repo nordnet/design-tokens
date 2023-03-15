@@ -13,6 +13,9 @@
     "type": "git",
     "url": "git+https://github.com/nordnet/design-tokens.git"
   },
+  "files": [
+    "build"
+  ],
   "author": "Mansour Mansour <mansour.mansour@nordnet.se>",
   "license": "MIT",
   "bugs": {
@@ -20,7 +23,6 @@
   },
   "homepage": "https://github.com/nordnet/design-tokens#readme",
   "devDependencies": {
-    "json-to-ts": "^1.7.0",
     "semantic-release": "^20.1.1",
     "style-dictionary": "^3.7.2"
   }
