@@ -35,6 +35,16 @@ function getConfig(theme) {
           },
         ],
       },
+      javascript: {
+        transformGroup: "js",
+        buildPath: "build/js/",
+        files: [
+          {
+            destination: `${theme}Theme.js`,
+            format: "javascript/es6",
+          },
+        ],
+      },
     },
   };
 }
