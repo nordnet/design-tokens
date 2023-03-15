@@ -1,6 +1,5 @@
 const StyleDictionary = require("style-dictionary");
 const assert = require("node:assert");
-const JsonToTS = require('json-to-ts');
 const { getConfig } = require("./config");
 
 function capitalizeFirstLetter(string) {
@@ -24,15 +23,6 @@ StyleDictionary.registerParser({
     return {
       color: JSON.parse(contents).color[args.theme],
     };
-  },
-});
-
-StyleDictionary.registerFormat({
-  name: 'typescript/accurate-module-declarations',
-  formatter: function({ dictionary }) {
-    return 'declare const root: RootObject\n' +
-    'export default root\n' +
-    JsonToTS(dictionary.properties).join('\n');
   },
 });
 
