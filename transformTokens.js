@@ -6,6 +6,26 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+function commonjsTemplate(token) {
+  let output = '';
+  if (token.deprecated || token.comment) {
+    output += '  /**\n';
+    if (token.deprecated) {
+      output += `   * @deprecated ${token.name} is deprecated`;
+      if (token.deprecated_comment) {
+        output += ` (${token.deprecated_comment})`;
+      }
+      output += '\n';
+    }
+    if (token.comment) {
+      output += `   * ${token.comment}\n`;
+    }
+    output += '   */\n';
+  }
+  output += `  ${token.name}: '${token.value}',\n`;
+  return output;
+}
+
 const args = process.argv.slice(2).reduce((acc, pairStr) => {
   const [_key, value] = pairStr.split("=");
   const key = _key.replace("--", "");
@@ -24,6 +44,14 @@ StyleDictionary.registerParser({
       color: JSON.parse(contents).color[args.theme],
     };
   },
+});
+
+StyleDictionary.registerFormat({
+  formatter: (args) => {
+    const symbols = args.dictionary.allProperties.map(commonjsTemplate).join('');
+    return `module.exports = {\n${symbols}};\n`;
+  },
+  name: 'custom/format/javascript/module',
 });
 
 StyleDictionary.registerFormat({

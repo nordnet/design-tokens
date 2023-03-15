@@ -4,46 +4,53 @@ function getConfig(theme) {
     platforms: {
       css: {
         transformGroup: "css",
-        buildPath: "build/css/",
+        buildPath: `dist/${theme}Theme/css/`,
         files: [
           {
-            destination: `_${theme}Theme.css`,
+            destination: `_tokens.css`,
             format: "css/variables",
             options: {
               showFileHeader: false,
             },
           },
-        ],
+        ]
       },
       jsonFlat: {
         transformGroup: "js",
-        buildPath: "build/json/",
+        buildPath: `dist/${theme}Theme/json/`,
         files: [
           {
-            destination: `${theme}Theme.json`,
+            destination: `tokens.json`,
             format: "json/flat",
           },
         ],
+        transforms: ['name/cti/camel'],
       },
-      typescript: {
-        transformGroup: "js",
-        buildPath: "build/types/",
+      js: {
+        buildPath: `dist/${theme}Theme/js/`,
         files: [
           {
-            destination: `${theme}Theme.ts`,
-            format: "typescript",
+            destination: `tokens.mjs`,
+            format: 'javascript/es6',
+          },
+          {
+            destination: `tokens.cjs`,
+            format: 'custom/format/javascript/module',
           },
         ],
+        transformGroup: 'js',
+        transforms: ['name/cti/camel'],
       },
-      javascript: {
-        transformGroup: "js",
-        buildPath: "build/js/",
+      ts: {
+        buildPath: `dist/${theme}Theme/js/`,
         files: [
           {
-            destination: `${theme}Theme.js`,
-            format: "javascript/es6",
-          },
+            destination: `tokens.d.ts`,
+            format: 'typescript/es6-declarations',
+          }
         ],
+        transformGroup: 'js',
+        transforms: ['name/cti/pascal'],
       },
     },
   };
