@@ -3,54 +3,43 @@ function getConfig(theme) {
     source: ["tokens/*.json"],
     platforms: {
       css: {
-        transformGroup: "css",
-        buildPath: `dist/${theme}Theme/css/`,
+        buildPath: `dist/css/`,
         files: [
           {
-            destination: `_tokens.css`,
+            destination: `${theme}Theme.css`,
             format: "css/variables",
             options: {
               showFileHeader: false,
             },
           },
-        ]
+        ],
+        transformGroup: "css",
       },
       jsonFlat: {
-        transformGroup: "js",
-        buildPath: `dist/${theme}Theme/json/`,
+        buildPath: `dist/json/`,
         files: [
           {
-            destination: `tokens.json`,
+            destination: `${theme}Theme.json`,
             format: "json/flat",
           },
         ],
-        transforms: ['name/cti/camel'],
+        transformGroup: "js",
+        transforms: ["name/cti/camel"],
       },
       js: {
-        buildPath: `dist/${theme}Theme/js/`,
+        buildPath: `dist/js/`,
         files: [
           {
-            destination: `tokens.mjs`,
-            format: 'javascript/es6',
+            destination: `${theme}Theme.js`,
+            format: "javascript/es6",
           },
           {
-            destination: `tokens.cjs`,
-            format: 'custom/format/javascript/module',
+            destination: `${theme}Theme.d.ts`,
+            format: "custom/typescript/es6-declarations",
           },
         ],
-        transformGroup: 'js',
-        transforms: ['name/cti/camel'],
-      },
-      ts: {
-        buildPath: `dist/${theme}Theme/js/`,
-        files: [
-          {
-            destination: `tokens.d.ts`,
-            format: 'typescript/es6-declarations',
-          }
-        ],
-        transformGroup: 'js',
-        transforms: ['name/cti/pascal'],
+        transformGroup: "js",
+        transforms: ["name/cti/camel"],
       },
     },
   };

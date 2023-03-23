@@ -4,9 +4,9 @@
   "description": "",
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "npm run transform-tokens",
+    "build": "npm run transform",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "transform-tokens": "node transformTokens.js --theme=light && node transformTokens.js --theme=dark && node transformTokens.js --theme=accessibility",
+    "transform": "node transformTokens.js --theme=light && node transformTokens.js --theme=dark && node transformTokens.js --theme=accessibility",
     "semantic-release": "semantic-release",
     "tsc": "tsc"
   },
@@ -17,28 +17,8 @@
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "types": "./dist/lightTheme/js/tokens.d.ts",
-      "node": "./dist/lightTheme/js/tokens.mjs",
-      "require": "./dist/lightTheme/js/tokens.cjs"
-    },
-    "./dist/lightTheme/*": {
-      "types": "./dist/lightTheme/js/tokens.d.ts",
-      "node": "./dist/lightTheme/js/tokens.mjs",
-      "require": "./dist/lightTheme/js/tokens.cjs"
-    },
-    "./dist/darkTheme/*": {
-      "types": "./dist/darkTheme/js/tokens.d.ts",
-      "node": "./dist/darkTheme/js/tokens.mjs",
-      "require": "./dist/darkTheme/js/tokens.cjs"
-    },
-    "./dist/accessibilityTheme/*": {
-      "types": "./dist/accessibilityTheme/js/tokens.d.ts",
-      "node": "./dist/accessibilityTheme/js/tokens.mjs",
-      "require": "./dist/accessibilityTheme/js/tokens.cjs"
-    }
-  },
+  "main": "./dist/js/lightTheme.js",
+  "types": "./dist/js/lightTheme.d.ts",
   "author": "Mansour Mansour <mansour.mansour@nordnet.se>",
   "license": "MIT",
   "bugs": {
@@ -48,7 +28,6 @@
   "devDependencies": {
     "rimraf": "^4.4.0",
     "semantic-release": "^20.1.1",
-    "style-dictionary": "^3.7.2",
-    "typescript": "^4.9.5"
+    "style-dictionary": "^3.7.2"
   }
 }
