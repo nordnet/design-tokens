@@ -36,10 +36,10 @@ jobs:
           node-version: 18
 
       - name: Install
-        run: "npm install"
+        run: "npm ci"
 
-      - name: Transform design tokens
-        run: "npm run transform-tokens"
+      - name: Build
+        run: "npm run build"
       
       - name: Commit message
         run: echo {{ github.event.client_payload.commitMessage }}
