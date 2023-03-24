@@ -5,6 +5,8 @@ const { fileHeader } = StyleDictionary.formatHelpers;
 
 const supportedThemes = ["light", "dark", "accessibility"];
 
+// TODO: we need to allow for partial exports from designers, maybe save tokens/colors-${PR_number}.json and marge programatically into tokens/colors.json
+
 supportedThemes.map((theme) => {
   console.log(`🤖 Compiling tokens for the ${theme.toUpperCase()} theme`);
 
