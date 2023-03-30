@@ -25,10 +25,10 @@ jobs:
           name: ${{ github.event.client_payload.filename }}
           # use the json string that was sent as the tokens parameter
           json: ${{ github.event.client_payload.tokens }}
-          dir: "tokens"
+          dir: "tokens/updates"
 
       - name: file content
-        run: cat tokens/${{ github.event.client_payload.filename }}
+        run: cat tokens/updates/${{ github.event.client_payload.filename }}
 
       - name: Use Node.js 18
         uses: actions/setup-node@v3
