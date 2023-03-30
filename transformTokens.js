@@ -55,7 +55,7 @@ supportedThemes.map((theme) => {
         fileHeader({ file }) +
         dictionary.allTokens
           .map(function (token) {
-            return `export declare const ${token.name}: string;`;
+            return `export declare const ${token.name}: '${token.value}';`;
           })
           .join("\n")
       );
