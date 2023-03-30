@@ -4,9 +4,9 @@
   "description": "",
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "npm run transform",
+    "build": "npm run transform-tokens",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "transform": "node transformTokens.js --theme=light && node transformTokens.js --theme=dark && node transformTokens.js --theme=accessibility",
+    "transform-tokens": "node transformTokens.js",
     "semantic-release": "semantic-release",
     "tsc": "tsc"
   },
