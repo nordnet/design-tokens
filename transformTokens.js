@@ -1,6 +1,8 @@
 const StyleDictionary = require("style-dictionary");
 const fs = require("node:fs");
+const { format } = require("prettier");
 const { getConfig } = require("./config");
+const { jsonToNestedValue } = require("./src/utils/jsonToNestedValue");
 
 function log(x) {
   console.log(`🤖 ${x}`);
@@ -59,6 +61,31 @@ supportedThemes.map((theme) => {
           })
           .join("\n")
       );
+    },
+  });
+
+  StyleDictionary.registerFormat({
+    name: "custom/javascript/esm",
+    formatter: function ({
+      dictionary,
+      file,
+      options: _options,
+      platform = {},
+    }) {
+      const { prefix } = platform;
+      const tokens = prefix
+        ? { [prefix]: dictionary.tokens }
+        : dictionary.tokens;
+
+      const output =
+        fileHeader({ file }) +
+        `export default \n${JSON.stringify(
+          jsonToNestedValue(tokens),
+          null,
+          2
+        )}\n`;
+      // return prettified
+      return format(output, { parser: "typescript", printWidth: 500 });
     },
   });
 

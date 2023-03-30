@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/nordnet/design-tokens#readme",
   "devDependencies": {
+    "prettier": "^2.8.7",
     "rimraf": "^4.4.0",
     "semantic-release": "^20.1.1",
     "style-dictionary": "^3.7.2"

@@ -15,12 +15,12 @@ function getConfig(theme) {
         ],
         transformGroup: "css",
       },
-      jsonFlat: {
+      json: {
         buildPath: `dist/json/`,
         files: [
           {
             destination: `${theme}Theme.json`,
-            format: "json/flat",
+            format: "json/nested",
           },
         ],
         transformGroup: "js",
@@ -31,7 +31,7 @@ function getConfig(theme) {
         files: [
           {
             destination: `${theme}Theme.js`,
-            format: "javascript/es6",
+            format: "custom/javascript/esm",
           },
           {
             destination: `${theme}Theme.d.ts`,
