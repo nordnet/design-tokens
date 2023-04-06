@@ -1,11 +1,16 @@
 const StyleDictionary = require("style-dictionary");
 const fs = require("node:fs");
 const { format } = require("prettier");
+const jsonToTs = require("json-to-ts");
 const { getConfig } = require("./config");
 const { jsonToNestedValue } = require("./src/utils/jsonToNestedValue");
 
 function log(x) {
   console.log(`🤖 ${x}`);
+}
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 const { fileHeader } = StyleDictionary.formatHelpers;
@@ -72,19 +77,25 @@ supportedThemes.map((theme) => {
       options: _options,
       platform = {},
     }) {
+      const typesName = `${capitalizeFirstLetter(theme)}Theme`;
       const { prefix } = platform;
       const tokens = prefix
         ? { [prefix]: dictionary.tokens }
         : dictionary.tokens;
 
+      const nestedValues = jsonToNestedValue(tokens);
+      const types = jsonToTs(nestedValues, { rootName: `${typesName}` }).join(
+        "\n"
+      );
+
       const output =
         fileHeader({ file }) +
-        `export default \n${JSON.stringify(
-          jsonToNestedValue(tokens),
+        `export ${types}` +
+        `export const colors: ${typesName} = \n${JSON.stringify(
+          nestedValues,
           null,
           2
         )}\n`;
-      // return prettified
       return format(output, { parser: "typescript", printWidth: 500 });
     },
   });
