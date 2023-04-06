@@ -3,7 +3,7 @@ function getConfig(theme) {
     source: ["tokens/*.json"],
     platforms: {
       css: {
-        buildPath: `dist/css/`,
+        buildPath: `src/generated/css/`,
         files: [
           {
             destination: `${theme}Theme.css`,
@@ -16,7 +16,7 @@ function getConfig(theme) {
         transformGroup: "css",
       },
       json: {
-        buildPath: `dist/json/`,
+        buildPath: `src/generated/json/`,
         files: [
           {
             destination: `${theme}Theme.json`,
@@ -27,15 +27,11 @@ function getConfig(theme) {
         transforms: ["name/cti/camel"],
       },
       js: {
-        buildPath: `dist/js/`,
+        buildPath: `src/generated/js/`,
         files: [
           {
-            destination: `${theme}Theme.js`,
+            destination: `${theme}Theme.ts`,
             format: "custom/javascript/esm",
-          },
-          {
-            destination: `${theme}Theme.d.ts`,
-            format: "custom/typescript/es6-declarations",
           },
         ],
         transformGroup: "js",
