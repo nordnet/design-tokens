@@ -1,41 +1,41 @@
 function getConfig(theme) {
   return {
-    source: ["tokens/*.json"],
+    source: ['tokens/*.json'],
     platforms: {
       css: {
         buildPath: `src/generated/css/`,
         files: [
           {
             destination: `${theme}Theme.css`,
-            format: "css/variables",
+            format: 'css/variables',
             options: {
               showFileHeader: false,
             },
           },
         ],
-        transformGroup: "css",
+        transformGroup: 'css',
       },
       json: {
         buildPath: `src/generated/json/`,
         files: [
           {
             destination: `${theme}Theme.json`,
-            format: "json/nested",
+            format: 'json/nested',
           },
         ],
-        transformGroup: "js",
-        transforms: ["name/cti/camel"],
+        transformGroup: 'js',
+        transforms: ['name/cti/camel'],
       },
       js: {
         buildPath: `src/generated/js/`,
         files: [
           {
             destination: `${theme}Theme.ts`,
-            format: "custom/javascript/esm",
+            format: 'custom/javascript/esm',
           },
         ],
-        transformGroup: "js",
-        transforms: ["name/cti/camel"],
+        transformGroup: 'js',
+        transforms: ['name/cti/camel'],
       },
     },
   };
