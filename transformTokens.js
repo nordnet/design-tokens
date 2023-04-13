@@ -71,7 +71,7 @@ supportedThemes.map(theme => {
 
   StyleDictionary.registerFormat({
     name: 'custom/javascript/esm',
-    formatter: function ({ dictionary, file, options: _options, platform = {} }) {
+    formatter: function ({ dictionary, file, platform = {} }) {
       const typesName = `${capitalizeFirstLetter(theme)}Theme`;
       const { prefix } = platform;
       const tokens = prefix ? { [prefix]: dictionary.tokens } : dictionary.tokens;
