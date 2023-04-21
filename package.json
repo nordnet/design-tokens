@@ -5,13 +5,13 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "npm run transform-tokens && npm run tsc && npm run copy:css && npm run copy:json",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "pretransform-tokens": "rimraf src/generated",
     "transform-tokens": "node transformTokens.js",
     "semantic-release": "semantic-release",
     "tsc": "tsc --outDir dist/esm && tsc -m commonjs --outDir dist/cjs",
     "copy:css": "copyfiles -u 1 src/generated/css/*.css dist/esm && copyfiles -u 1 src/generated/css/*.css dist/cjs",
-    "copy:json": "copyfiles -u 1 src/generated/json/*.json dist/esm && copyfiles -u 1 src/generated/json/*.json dist/cjs"
+    "copy:json": "copyfiles -u 1 src/generated/json/*.json dist/esm && copyfiles -u 1 src/generated/json/*.json dist/cjs",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -30,12 +30,15 @@
   },
   "homepage": "https://github.com/nordnet/design-tokens#readme",
   "devDependencies": {
+    "@types/jest": "^29.5.1",
     "copyfiles": "^2.4.1",
+    "jest": "^29.5.0",
     "json-to-ts": "^1.7.0",
     "prettier": "^2.8.7",
     "rimraf": "^4.4.0",
     "semantic-release": "^20.1.1",
     "style-dictionary": "^3.7.2",
+    "ts-node": "^10.9.1",
     "typescript": "^5.0.3"
   }
 }
