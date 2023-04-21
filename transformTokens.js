@@ -13,6 +13,25 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+function addDeprecationComment(interfaceString, category, propertyName) {
+  const regex = new RegExp(`(?<=${category} {[\\s\\S]*?)${propertyName}`);
+  return interfaceString.replace(regex, "/** @deprecated */\n" + propertyName);
+}
+
+function deprecateTokens(paths, interfaceString) {
+  let output = interfaceString;
+  paths.forEach((path) => {
+    const interfaceName = path[path.length - 2];
+    const propertyName = path[path.length - 1];
+    output = addDeprecationComment(
+      output,
+      capitalizeFirstLetter(interfaceName),
+      propertyName
+    );
+  });
+  return output;
+}
+
 const { fileHeader } = StyleDictionary.formatHelpers;
 const supportedThemes = ["light", "dark", "accessibility"];
 const incomingUpdatesFilePath = "./tokens/updates/colors.json";
@@ -84,13 +103,26 @@ supportedThemes.map((theme) => {
         : dictionary.tokens;
 
       const nestedValues = jsonToNestedValue(tokens);
+
+      const pathsToDeprecatedTokens = dictionary.allTokens
+        .map((token) => {
+          if (token.description.includes("[DEPRECATED]")) {
+            return token.path;
+          }
+        })
+        .filter(Boolean);
+
       const types = jsonToTs(nestedValues, { rootName: `${typesName}` }).join(
         "\n"
+      );
+      const typesWithDeprecations = deprecateTokens(
+        pathsToDeprecatedTokens,
+        types
       );
 
       const output =
         fileHeader({ file }) +
-        `export ${types}` +
+        `export ${typesWithDeprecations}` +
         `export const colors: ${typesName} = \n${JSON.stringify(
           nestedValues,
           null,
