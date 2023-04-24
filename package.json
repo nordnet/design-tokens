@@ -2,6 +2,9 @@
   "name": "@nordnet/design-tokens",
   "version": "0.0.0",
   "description": "",
+  "engines": {
+    "node": "=v18.13.0"
+  },
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "npm run transform-tokens && npm run tsc && npm run copy:css && npm run copy:json",
@@ -13,10 +16,7 @@
     "copy:json": "copyfiles -u 1 src/generated/json/*.json dist/esm && copyfiles -u 1 src/generated/json/*.json dist/cjs",
     "test": "jest"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nordnet/design-tokens.git"
-  },
+  "repository": "nordnet/design-tokens",
   "files": [
     "dist"
   ],
@@ -25,10 +25,6 @@
   "types": "./dist/esm/index.d.ts",
   "author": "Mansour Mansour <mansour.mansour@nordnet.se>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/nordnet/design-tokens/issues"
-  },
-  "homepage": "https://github.com/nordnet/design-tokens#readme",
   "devDependencies": {
     "@types/jest": "^29.5.1",
     "copyfiles": "^2.4.1",
@@ -38,7 +34,6 @@
     "rimraf": "^4.4.0",
     "semantic-release": "^20.1.1",
     "style-dictionary": "^3.7.2",
-    "ts-node": "^10.9.1",
     "typescript": "^5.0.3"
   }
 }
