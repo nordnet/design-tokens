@@ -21,7 +21,7 @@ jobs:
         run: npm ci
 
       - name: Run Typescript checks
-        run: npm tsc --noEmit
+        run: npm run tsc
 
       - name: Run tests
         run: npm test

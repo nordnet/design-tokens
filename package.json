@@ -7,11 +7,12 @@
   },
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "npm run transform-tokens && npm run tsc && npm run copy:css && npm run copy:json",
+    "build": "npm run transform-tokens && npm run tsc:build && npm run copy:css && npm run copy:json",
     "pretransform-tokens": "rimraf src/generated",
     "transform-tokens": "node transformTokens.js",
     "semantic-release": "semantic-release",
-    "tsc": "tsc --outDir dist/esm && tsc -m commonjs --outDir dist/cjs",
+    "tsc": "tsc --noEmit",
+    "tsc:build": "tsc --outDir dist/esm && tsc -m commonjs --outDir dist/cjs",
     "copy:css": "copyfiles -u 1 src/generated/css/*.css dist/esm && copyfiles -u 1 src/generated/css/*.css dist/cjs",
     "copy:json": "copyfiles -u 1 src/generated/json/*.json dist/esm && copyfiles -u 1 src/generated/json/*.json dist/cjs",
     "test": "jest"
