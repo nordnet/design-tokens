@@ -22,13 +22,13 @@ jobs:
         uses: jsdaniell/create-json@v1.2.2
         with:
           # use the figma filename that was sent as the filename parameter
-          name: colors.json
+          name: designTokens.json
           # use the json string that was sent as the tokens parameter
           json: ${{ github.event.client_payload.tokens }}
           dir: "tokens/updates"
 
       - name: file contents
-        run: cat tokens/updates/colors.json
+        run: cat tokens/updates/designTokens.json
 
       - name: Use Node
         uses: actions/setup-node@v3
@@ -39,7 +39,7 @@ jobs:
         run: "npm ci"
 
       - name: Build
-        # This command will also merge incoming tokens in tokens/updates folder into tokens/colors.json
+        # This command will also merge incoming tokens in tokens/updates folder into tokens/designTokens.json
         run: "npm run build"
 
       - name: Commit message
