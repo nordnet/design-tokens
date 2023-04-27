@@ -30,10 +30,10 @@ jobs:
       - name: file content
         run: cat tokens/updates/${{ github.event.client_payload.filename }}
 
-      - name: Use Node.js 18
+      - name: Use Node
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version-file: ".nvmrc"
 
       - name: Install
         run: "npm ci"
@@ -49,16 +49,16 @@ jobs:
         if: github.event.client_payload.commitMessage != ''
         with:
           commit-message: ${{github.event.client_payload.commitMessage}}
-          title: "feat: design tokens update ${{github.event.client_payload.commitMessage}}"
-          branch: feat/tokens-update-${{ github.run_number }}
+          title: "feat: design tokens update"
+          branch: feat/tokens-update
 
       - name: Create PR with default commit message
         uses: peter-evans/create-pull-request@v4
         if: github.event.client_payload.commitMessage == ''
         with:
           commit-message: "Update tokens"
-          title: "feat: design tokens update ${{ github.run_number }}"
-          branch: feat/tokens-update-${{ github.run_number }}
+          title: "feat: design tokens update"
+          branch: feat/tokens-update
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH_NAME: "master"
