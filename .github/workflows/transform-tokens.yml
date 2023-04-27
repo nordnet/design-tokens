@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: mkdir "tokens" directory
-        run: "mkdir -p tokens"
+        run: "mkdir -p tokens/updates"
 
       - name: show tokens
         run: echo '${{ toJSON(github.event.client_payload.tokens) }}'
@@ -22,13 +22,13 @@ jobs:
         uses: jsdaniell/create-json@v1.2.2
         with:
           # use the figma filename that was sent as the filename parameter
-          name: ${{ github.event.client_payload.filename }}
+          name: colors.json
           # use the json string that was sent as the tokens parameter
           json: ${{ github.event.client_payload.tokens }}
           dir: "tokens/updates"
 
-      - name: file content
-        run: cat tokens/updates/${{ github.event.client_payload.filename }}
+      - name: file contents
+        run: cat tokens/updates/colors.json
 
       - name: Use Node
         uses: actions/setup-node@v3
@@ -39,6 +39,7 @@ jobs:
         run: "npm ci"
 
       - name: Build
+        # This command will also merge incoming tokens in tokens/updates folder into tokens/colors.json
         run: "npm run build"
 
       - name: Commit message
