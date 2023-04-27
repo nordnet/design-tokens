@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 21 Apr 2023 13:19:28 GMT
+ * Generated on Thu, 27 Apr 2023 09:22:41 GMT
  */
 
 export interface AccessibilityTheme {
@@ -44,8 +44,8 @@ interface Warning {
   background_weak: string;
   background_medium: string;
   background_strong: string;
-  border_default: string;
   icon_default: string;
+  border_default: string;
   icon_strong: string;
 }
 interface Positive {
@@ -121,7 +121,8 @@ interface Neutral {
   background_active: string;
   background_inactive: string;
   background_focus: string;
-  background_brand: string;
+  background_brand_dark: string;
+  background_brand_light: string;
   background_content: string;
   background_overlay: string;
   border_default: string;
@@ -158,7 +159,8 @@ export const colors: AccessibilityTheme = {
       background_active: "#ffffffff",
       background_inactive: "#424242ff",
       background_focus: "#212121ff",
-      background_brand: "#000000ff",
+      background_brand_dark: "#000000ff",
+      background_brand_light: "#ffffffff",
       background_content: "#ffffffff",
       background_overlay: "#00000066",
       border_default: "#bdbdbdff",
@@ -238,8 +240,8 @@ export const colors: AccessibilityTheme = {
       background_weak: "#fffdf2ff",
       background_medium: "#fff7d4ff",
       background_strong: "#ffcf00ff",
-      border_default: "#e6bb00ff",
       icon_default: "#e6bb00ff",
+      border_default: "#e6bb00ff",
       icon_strong: "#ffcf00ff",
     },
     error: {
