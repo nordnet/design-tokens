@@ -34,8 +34,8 @@ function deprecateTokens(paths, interfaceString) {
 
 const { fileHeader } = StyleDictionary.formatHelpers;
 const supportedThemes = ["light", "dark", "accessibility"];
-const incomingUpdatesFilePath = "./tokens/updates/colors.json";
-const currentTokensPath = "./tokens/colors.json";
+const incomingUpdatesFilePath = "./tokens/updates/designTokens.json";
+const currentTokensPath = "./tokens/designTokens.json";
 
 if (fs.existsSync(incomingUpdatesFilePath)) {
   log("Found new tokens");
