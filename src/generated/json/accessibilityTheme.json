@@ -17,7 +17,8 @@
       "background_active": "#ffffffff",
       "background_inactive": "#424242ff",
       "background_focus": "#212121ff",
-      "background_brand": "#000000ff",
+      "background_brand_dark": "#000000ff",
+      "background_brand_light": "#ffffffff",
       "background_content": "#ffffffff",
       "background_overlay": "#00000066",
       "border_default": "#bdbdbdff",
@@ -97,8 +98,8 @@
       "background_weak": "#fffdf2ff",
       "background_medium": "#fff7d4ff",
       "background_strong": "#ffcf00ff",
-      "border_default": "#e6bb00ff",
       "icon_default": "#e6bb00ff",
+      "border_default": "#e6bb00ff",
       "icon_strong": "#ffcf00ff"
     },
     "error": {
