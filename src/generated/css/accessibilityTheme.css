@@ -15,7 +15,8 @@
   --color-neutral-background-active: #ffffff;
   --color-neutral-background-inactive: #424242;
   --color-neutral-background-focus: #212121;
-  --color-neutral-background-brand: #000000;
+  --color-neutral-background-brand-dark: #000000;
+  --color-neutral-background-brand-light: #ffffff;
   --color-neutral-background-content: #ffffff;
   --color-neutral-background-overlay: rgba(0, 0, 0, 0.4);
   --color-neutral-border-default: #bdbdbd;
@@ -87,8 +88,8 @@
   --color-warning-background-weak: #fffdf2;
   --color-warning-background-medium: #fff7d4;
   --color-warning-background-strong: #ffcf00;
-  --color-warning-border-default: #e6bb00;
   --color-warning-icon-default: #e6bb00;
+  --color-warning-border-default: #e6bb00;
   --color-warning-icon-strong: #ffcf00;
   --color-error-text-default: #cc3929;
   --color-error-text-hover: #992b1f;
