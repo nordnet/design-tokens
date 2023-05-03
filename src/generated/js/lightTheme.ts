@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 21 Apr 2023 13:19:28 GMT
+ * Generated on Wed, 03 May 2023 12:29:27 GMT
  */
 
 export interface LightTheme {
