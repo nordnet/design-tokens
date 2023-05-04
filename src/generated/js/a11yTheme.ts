@@ -1,9 +1,9 @@
 /**
  * Do not edit directly
- * Generated on Wed, 03 May 2023 13:16:31 GMT
+ * Generated on Thu, 04 May 2023 11:55:44 GMT
  */
 
-export interface AccessibilityTheme {
+export interface A11yTheme {
   color: Color;
 }
 interface Color {
@@ -21,6 +21,8 @@ interface Accent {
   background_weak: string;
   background_strong: string;
   background_brand: string;
+  background_brand_hover: string;
+  background_brand_pressed: string;
   icon_default: string;
   icon_brand: string;
 }
@@ -44,8 +46,8 @@ interface Warning {
   background_weak: string;
   background_medium: string;
   background_strong: string;
-  border_default: string;
   icon_default: string;
+  border_default: string;
   icon_strong: string;
 }
 interface Positive {
@@ -88,7 +90,9 @@ interface Action {
   text_pressed: string;
   background_default: string;
   background_weak: string;
+  background_medium: string;
   background_strong: string;
+  background_disabled: string;
   background_hover: string;
   background_pressed: string;
   background_data: string;
@@ -118,10 +122,14 @@ interface Neutral {
   background_strong: string;
   background_disabled: string;
   background_disabled_app: string;
+  background_skeleton: string;
   background_active: string;
   background_inactive: string;
   background_focus: string;
-  background_brand: string;
+  background_focus_hover: string;
+  background_focus_pressed: string;
+  background_brand_dark: string;
+  background_brand_light: string;
   background_content: string;
   background_overlay: string;
   border_default: string;
@@ -139,7 +147,7 @@ interface Neutral {
   icon_brand: string;
   border_brand: string;
 }
-export const colors: AccessibilityTheme = {
+export const colors: A11yTheme = {
   color: {
     neutral: {
       text_default: "#212121ff",
@@ -155,10 +163,14 @@ export const colors: AccessibilityTheme = {
       background_strong: "#e0e0e0ff",
       background_disabled: "#eeeeeeff",
       background_disabled_app: "#eeeeeeff",
+      background_skeleton: "#eeeeeeff",
       background_active: "#ffffffff",
       background_inactive: "#424242ff",
       background_focus: "#212121ff",
-      background_brand: "#000000ff",
+      background_focus_hover: "#424242ff",
+      background_focus_pressed: "#6e6e6eff",
+      background_brand_dark: "#000000ff",
+      background_brand_light: "#ffffffff",
       background_content: "#ffffffff",
       background_overlay: "#00000066",
       border_default: "#bdbdbdff",
@@ -183,7 +195,9 @@ export const colors: AccessibilityTheme = {
       text_pressed: "#1f4099ff",
       background_default: "#336bffff",
       background_weak: "#eaf0ffff",
+      background_medium: "#adc4ffff",
       background_strong: "#1f4099ff",
+      background_disabled: "#d6e1ffff",
       background_hover: "#2650bfff",
       background_pressed: "#1f4099ff",
       background_data: "#2650bfff",
@@ -238,8 +252,8 @@ export const colors: AccessibilityTheme = {
       background_weak: "#fffdf2ff",
       background_medium: "#fff7d4ff",
       background_strong: "#ffcf00ff",
-      border_default: "#e6bb00ff",
       icon_default: "#e6bb00ff",
+      border_default: "#e6bb00ff",
       icon_strong: "#ffcf00ff",
     },
     error: {
@@ -262,6 +276,8 @@ export const colors: AccessibilityTheme = {
       background_weak: "#e5fdfcff",
       background_strong: "#00605aff",
       background_brand: "#00f0e1ff",
+      background_brand_hover: "#99f9f3ff",
+      background_brand_pressed: "#ccfcf9ff",
       icon_default: "#009087ff",
       icon_brand: "#00f0e1ff",
     },
