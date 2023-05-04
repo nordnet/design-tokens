@@ -49,7 +49,7 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         if: github.event.client_payload.commitMessage != ''
         with:
-          commit-message: ${{github.event.client_payload.commitMessage}}
+          commit-message: "feat: ${{github.event.client_payload.commitMessage}}"
           title: "feat: design tokens update"
           branch: feat/tokens-update
 
@@ -57,7 +57,7 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         if: github.event.client_payload.commitMessage == ''
         with:
-          commit-message: "Update tokens"
+          commit-message: "feat: Update tokens"
           title: "feat: design tokens update"
           branch: feat/tokens-update
         env:
