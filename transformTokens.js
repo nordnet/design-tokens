@@ -33,7 +33,7 @@ function deprecateTokens(paths, interfaceString) {
 }
 
 const { fileHeader } = StyleDictionary.formatHelpers;
-const supportedThemes = ["light", "dark", "accessibility"];
+const supportedThemes = ["light", "dark", "a11y"];
 const incomingUpdatesFilePath = "./tokens/updates/designTokens.json";
 const currentTokensPath = "./tokens/designTokens.json";
 
