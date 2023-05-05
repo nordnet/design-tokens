@@ -12,10 +12,14 @@
   --color-neutral-background-strong: #e0e0e0;
   --color-neutral-background-disabled: #eeeeee;
   --color-neutral-background-disabled-app: #eeeeee;
+  --color-neutral-background-skeleton: #eeeeee;
   --color-neutral-background-active: #ffffff;
   --color-neutral-background-inactive: #424242;
   --color-neutral-background-focus: #212121;
-  --color-neutral-background-brand: #000000;
+  --color-neutral-background-focus-hover: #424242;
+  --color-neutral-background-focus-pressed: #6e6e6e;
+  --color-neutral-background-brand-dark: #000000;
+  --color-neutral-background-brand-light: #ffffff;
   --color-neutral-background-content: #ffffff;
   --color-neutral-background-overlay: rgba(0, 0, 0, 0.4);
   --color-neutral-border-default: #bdbdbd;
@@ -38,7 +42,9 @@
   --color-action-text-pressed: #1f4099;
   --color-action-background-default: #336bff;
   --color-action-background-weak: #eaf0ff;
+  --color-action-background-medium: #adc4ff;
   --color-action-background-strong: #1f4099;
+  --color-action-background-disabled: #d6e1ff;
   --color-action-background-hover: #2650bf;
   --color-action-background-pressed: #1f4099;
   --color-action-background-data: #2650bf;
@@ -87,8 +93,8 @@
   --color-warning-background-weak: #fffdf2;
   --color-warning-background-medium: #fff7d4;
   --color-warning-background-strong: #ffcf00;
-  --color-warning-border-default: #e6bb00;
   --color-warning-icon-default: #e6bb00;
+  --color-warning-border-default: #e6bb00;
   --color-warning-icon-strong: #ffcf00;
   --color-error-text-default: #cc3929;
   --color-error-text-hover: #992b1f;
@@ -107,6 +113,8 @@
   --color-accent-background-weak: #e5fdfc;
   --color-accent-background-strong: #00605a;
   --color-accent-background-brand: #00f0e1;
+  --color-accent-background-brand-hover: #99f9f3;
+  --color-accent-background-brand-pressed: #ccfcf9;
   --color-accent-icon-default: #009087;
   --color-accent-icon-brand: #00f0e1;
 }

@@ -3,7 +3,7 @@ const fs = require("node:fs");
 const { format } = require("prettier");
 const jsonToTs = require("json-to-ts");
 const { getConfig } = require("./config");
-const { jsonToNestedValue } = require("./src/utils/jsonToNestedValue");
+const { jsonToNestedValue } = require("./utils/jsonToNestedValue");
 
 function log(x) {
   console.log(`🤖 ${x}`);

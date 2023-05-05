@@ -1,9 +1,6 @@
 import { LightTheme, colors as lightTheme } from "./generated/js/lightTheme";
 import { DarkTheme, colors as darkTheme } from "./generated/js/darkTheme";
-import {
-  AccessibilityTheme,
-  colors as accessibilityTheme,
-} from "./generated/js/accessibilityTheme";
+import { A11yTheme, colors as a11yThemeTheme } from "./generated/js/a11yTheme";
 
-export type { LightTheme, DarkTheme, AccessibilityTheme };
-export { lightTheme, darkTheme, accessibilityTheme };
+export type { LightTheme, DarkTheme, A11yTheme };
+export { lightTheme, darkTheme, a11yThemeTheme };

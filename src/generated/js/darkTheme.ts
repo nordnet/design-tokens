@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 03 May 2023 13:16:31 GMT
+ * Generated on Thu, 04 May 2023 11:55:44 GMT
  */
 
 export interface DarkTheme {
