@@ -42,9 +42,6 @@ jobs:
         # This command will also merge incoming tokens in tokens/updates folder into tokens/designTokens.json
         run: "npm run build"
 
-      - name: Commit message
-        run: "feat: #${{ github.run_number }} ${{ github.event.client_payload.commitMessage }}"
-
       - name: Create PR with proper commit message
         uses: peter-evans/create-pull-request@v5.0.1
         if: github.event.client_payload.commitMessage != ''
