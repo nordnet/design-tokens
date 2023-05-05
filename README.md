@@ -4,7 +4,7 @@ This project turns design tokens into usable formats for our frontends. By using
 
 ## How it works
 
-Design Tokens get exported from Figma using the [Design Tokens plugin](https://www.figma.com/community/plugin/888356646278934516/Design-Tokens) which sends the data through Githubs [repository_dispatch](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#repository_dispatch) event. A Github action listens to that event and saves the data as JSON. Then, [Style Dictionary](<[https://amzn.github.io/style-dictionary/](https://amzn.github.io/style-dictionary/#/README)>) transforms the tokens into the desired formats.
+Design Tokens get exported from Figma using the [Design Tokens plugin](https://www.figma.com/community/plugin/888356646278934516/Design-Tokens) which sends the data through Githubs [repository_dispatch](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#repository_dispatch) event. A Github action listens to that event and saves the data as JSON and lets [Style Dictionary](<[https://amzn.github.io/style-dictionary/](https://amzn.github.io/style-dictionary/#/README)>) transforms the tokens into the desired formats. The GitHub action then continues to create a PR with all the changes.
 
 ## Getting started
 
