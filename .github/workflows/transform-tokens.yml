@@ -43,21 +43,21 @@ jobs:
         run: "npm run build"
 
       - name: Commit message
-        run: echo {{ github.event.client_payload.commitMessage }}
+        run: "feat: #${{ github.run_number }} ${{ github.event.client_payload.commitMessage }}"
 
       - name: Create PR with proper commit message
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v5.0.1
         if: github.event.client_payload.commitMessage != ''
         with:
-          commit-message: "feat: ${{github.event.client_payload.commitMessage}}"
+          commit-message: "feat: #${{ github.run_number }} ${{github.event.client_payload.commitMessage}}"
           title: "feat: design tokens update"
           branch: feat/tokens-update
 
       - name: Create PR with default commit message
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v5.0.1
         if: github.event.client_payload.commitMessage == ''
         with:
-          commit-message: "feat: Update tokens"
+          commit-message: "feat: #${{ github.run_number }} Update tokens"
           title: "feat: design tokens update"
           branch: feat/tokens-update
         env:
