@@ -12,19 +12,27 @@ describe("JSON file", () => {
     expect(jsonData.color.a11y).toBeDefined();
   });
 
-  it("the different themes should have the same categories", () => {
+  it("light and dark themes should have the same categories", () => {
     const data = fs.readFileSync(currentTokensPath);
     const colorTokens = JSON.parse(data).color;
 
     const lightKeys = Object.keys(colorTokens.light).sort();
     const darkKeys = Object.keys(colorTokens.dark).sort();
-    const a11yKeys = Object.keys(colorTokens.a11y).sort();
 
     expect(lightKeys).toEqual(darkKeys);
+  });
+
+  it("light and ally themes should have the same categories", () => {
+    const data = fs.readFileSync(currentTokensPath);
+    const colorTokens = JSON.parse(data).color;
+
+    const lightKeys = Object.keys(colorTokens.light).sort();
+    const a11yKeys = Object.keys(colorTokens.a11y).sort();
+
     expect(lightKeys).toEqual(a11yKeys);
   });
 
-  it("all themes should have the same token names", () => {
+  it("light and dark themes should have the same token names", () => {
     const data = fs.readFileSync(currentTokensPath);
     const colorTokens = JSON.parse(data).color;
 
@@ -34,9 +42,33 @@ describe("JSON file", () => {
       expect(Object.keys(colorTokens.dark[key]).sort()).toEqual(
         Object.keys(colorTokens.light[key]).sort()
       );
-      expect(Object.keys(colorTokens.a11y[key]).sort()).toEqual(
-        Object.keys(colorTokens.light[key]).sort()
-      );
+
+      const lightThemeTokenNames = Object.keys(colorTokens.light[key])
+        .sort()
+        .map((x) => `${key}.${x}`);
+      const darkThemeTokenNames = Object.keys(colorTokens.dark[key])
+        .sort()
+        .map((x) => `${key}.${x}`);
+
+      expect(lightThemeTokenNames).toEqual(darkThemeTokenNames);
+    });
+  });
+
+  it("light and a11y themes should have the same token names", () => {
+    const data = fs.readFileSync(currentTokensPath);
+    const colorTokens = JSON.parse(data).color;
+
+    const lightKeys = Object.keys(colorTokens.light).sort();
+
+    lightKeys.forEach((key) => {
+      const lightThemeTokenNames = Object.keys(colorTokens.light[key])
+        .sort()
+        .map((x) => `${key}.${x}`);
+      const a11yThemeTokenNames = Object.keys(colorTokens.a11y[key])
+        .sort()
+        .map((x) => `${key}.${x}`);
+
+      expect(lightThemeTokenNames).toEqual(a11yThemeTokenNames);
     });
   });
 });
