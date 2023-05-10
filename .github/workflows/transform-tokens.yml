@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v3
 
       - name: mkdir "tokens" directory
         run: "mkdir -p tokens/updates"
@@ -22,13 +22,13 @@ jobs:
         uses: jsdaniell/create-json@v1.2.2
         with:
           # use the figma filename that was sent as the filename parameter
-          name: designTokens.json
+          name: designTokens${{ github.run_number }}.json
           # use the json string that was sent as the tokens parameter
           json: ${{ github.event.client_payload.tokens }}
           dir: "tokens/updates"
 
       - name: file contents
-        run: cat tokens/updates/designTokens.json
+        run: cat tokens/updates/designTokens${{ github.run_number }}.json
 
       - name: Use Node
         uses: actions/setup-node@v3
