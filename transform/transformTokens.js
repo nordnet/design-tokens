@@ -58,7 +58,7 @@ incomingUpdatesFileNames.map((fileName) => {
   fs.writeFileSync(currentTokensPath, updatedTokensJson);
   log("Updated tokens");
 
-  fs.unlink(incomingUpdatesFilePath, (err) => {
+  fs.unlink(incomingUpdatesFile, (err) => {
     if (err) {
       throw err;
     }
