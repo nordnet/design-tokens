@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 10 May 2023 10:50:28 GMT
+ * Generated on Wed, 10 May 2023 11:23:40 GMT
  */
 
 export interface A11yTheme {
