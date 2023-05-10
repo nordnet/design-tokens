@@ -21,7 +21,6 @@ jobs:
         id: create-json
         uses: jsdaniell/create-json@v1.2.2
         with:
-          # use the figma filename that was sent as the filename parameter
           name: designTokens${{ github.run_number }}.json
           # use the json string that was sent as the tokens parameter
           json: ${{ github.event.client_payload.tokens }}
@@ -46,17 +45,14 @@ jobs:
         uses: peter-evans/create-pull-request@v5.0.1
         if: github.event.client_payload.commitMessage != ''
         with:
-          commit-message: "feat: #${{ github.run_number }} ${{github.event.client_payload.commitMessage}}"
-          title: "feat: design tokens update"
-          branch: feat/tokens-update
+          commit-message: "feat: ${{github.event.client_payload.commitMessage}}"
+          title: "feat: design tokens update #${{ github.run_number }}"
+          branch: feat/${{ github.run_number }}-tokens-update
 
       - name: Create PR with default commit message
         uses: peter-evans/create-pull-request@v5.0.1
         if: github.event.client_payload.commitMessage == ''
         with:
-          commit-message: "feat: #${{ github.run_number }} Update tokens"
-          title: "feat: design tokens update"
-          branch: feat/tokens-update
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH_NAME: "master"
+          commit-message: "feat: Update tokens"
+          title: "feat: design tokens update #${{ github.run_number }}"
+          branch: feat/${{ github.run_number }}-tokens-update
