@@ -25,6 +25,12 @@ jobs:
       - name: Generate tokens
         run: npm run build
 
+      - name: Run Typescript checks
+        run: npm run tsc
+
+      - name: Run tests
+        run: npm test
+
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
