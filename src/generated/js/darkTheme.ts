@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 04 May 2023 11:55:44 GMT
+ * Generated on Wed, 10 May 2023 10:51:38 GMT
  */
 
 export interface DarkTheme {
@@ -21,14 +21,16 @@ interface Accent {
   background_weak: string;
   background_strong: string;
   background_brand: string;
+  background_brand_hover: string;
+  background_brand_pressed: string;
   icon_default: string;
   icon_brand: string;
 }
 interface Error {
   text_default: string;
+  background_default: string;
   text_hover: string;
   text_pressed: string;
-  background_default: string;
   background_weak: string;
   background_medium: string;
   background_hover: string;
@@ -44,8 +46,8 @@ interface Warning {
   background_weak: string;
   background_medium: string;
   background_strong: string;
-  border_default: string;
   icon_default: string;
+  border_default: string;
   icon_strong: string;
 }
 interface Positive {
@@ -54,6 +56,8 @@ interface Positive {
   text_hover: string;
   background_default: string;
   background_weak: string;
+  background_medium: string;
+  background_strong: string;
   background_data: string;
   background_brand: string;
   border_default: string;
@@ -88,7 +92,9 @@ interface Action {
   text_pressed: string;
   background_default: string;
   background_weak: string;
+  background_medium: string;
   background_strong: string;
+  background_disabled: string;
   background_hover: string;
   background_pressed: string;
   background_data: string;
@@ -116,12 +122,18 @@ interface Neutral {
   background_weak_app: string;
   background_medium: string;
   background_strong: string;
+  background_hover: string;
   background_disabled: string;
   background_disabled_app: string;
+  background_skeleton: string;
   background_active: string;
   background_inactive: string;
   background_focus: string;
-  background_brand: string;
+  background_focus_hover: string;
+  background_focus_pressed: string;
+  background_data: string;
+  background_brand_black: string;
+  background_brand_white: string;
   background_content: string;
   background_overlay: string;
   border_default: string;
@@ -153,12 +165,18 @@ export const colors: DarkTheme = {
       background_weak_app: "#212121ff",
       background_medium: "#424242ff",
       background_strong: "#424242ff",
+      background_hover: "#42424280",
       background_disabled: "#121212ff",
       background_disabled_app: "#212121ff",
+      background_skeleton: "#424242ff",
       background_active: "#424242ff",
       background_inactive: "#424242ff",
       background_focus: "#ffffffff",
-      background_brand: "#000000ff",
+      background_focus_hover: "#f5f5f5ff",
+      background_focus_pressed: "#eeeeeeff",
+      background_data: "#bdbdbdff",
+      background_brand_black: "#000000ff",
+      background_brand_white: "#ffffffff",
       background_content: "#000000ff",
       background_overlay: "#00000099",
       border_default: "#6e6e6eff",
@@ -183,7 +201,9 @@ export const colors: DarkTheme = {
       text_pressed: "#d6e1ffff",
       background_default: "#336bffff",
       background_weak: "#142b66ff",
+      background_medium: "#1f4099ff",
       background_strong: "#1f4099ff",
+      background_disabled: "#1f4099ff",
       background_hover: "#2650bfff",
       background_pressed: "#1f4099ff",
       background_data: "#00c0b4ff",
@@ -224,6 +244,8 @@ export const colors: DarkTheme = {
       text_hover: "#85da62ff",
       background_default: "#51cb20ff",
       background_weak: "#20510dff",
+      background_medium: "#85da62ff",
+      background_strong: "#41a21aff",
       background_data: "#317a13ff",
       background_brand: "#d2f500ff",
       border_default: "#51cb20ff",
@@ -238,15 +260,15 @@ export const colors: DarkTheme = {
       background_weak: "#614f00ff",
       background_medium: "#332900ff",
       background_strong: "#ffcf00ff",
-      border_default: "#ffcf00ff",
       icon_default: "#ffcf00ff",
+      border_default: "#ffcf00ff",
       icon_strong: "#ffcf00ff",
     },
     error: {
       text_default: "#ff4733ff",
+      background_default: "#ff4733ff",
       text_hover: "#ff7e70ff",
       text_pressed: "#ffa399ff",
-      background_default: "#ff4733ff",
       background_weak: "#661c14ff",
       background_medium: "#ff4733ff",
       background_hover: "#cc3929ff",
@@ -262,6 +284,8 @@ export const colors: DarkTheme = {
       background_weak: "#004844ff",
       background_strong: "#00605aff",
       background_brand: "#00f0e1ff",
+      background_brand_hover: "#99f9f3ff",
+      background_brand_pressed: "#ccfcf9ff",
       icon_default: "#00f0e1ff",
       icon_brand: "#00f0e1ff",
     },
