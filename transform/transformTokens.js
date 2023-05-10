@@ -40,9 +40,8 @@ const currentTokensPath = "./tokens/designTokens.json";
 const incomingUpdatesFileNames = fs.readdirSync(incomingUpdatesDirPath);
 
 incomingUpdatesFileNames.map((fileName) => {
-  const incomingUpdatesFile = fs.readFileSync(
-    `${incomingUpdatesDirPath}/${fileName}`
-  );
+  const incomingUpdatesFilePath = `${incomingUpdatesDirPath}/${fileName}`;
+  const incomingUpdatesFile = fs.readFileSync(incomingUpdatesFilePath);
   const incomingUpdates = JSON.parse(incomingUpdatesFile);
   const themesToReplace = Object.keys(incomingUpdates.color);
 
@@ -58,7 +57,7 @@ incomingUpdatesFileNames.map((fileName) => {
   fs.writeFileSync(currentTokensPath, updatedTokensJson);
   log("Updated tokens");
 
-  fs.unlink(incomingUpdatesFile, (err) => {
+  fs.unlink(incomingUpdatesFilePath, (err) => {
     if (err) {
       throw err;
     }
