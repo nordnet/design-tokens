@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 04 May 2023 11:55:44 GMT
+ * Generated on Wed, 10 May 2023 10:39:44 GMT
  */
 
 export interface LightTheme {
@@ -21,6 +21,8 @@ interface Accent {
   background_weak: string;
   background_strong: string;
   background_brand: string;
+  background_brand_hover: string;
+  background_brand_pressed: string;
   icon_default: string;
   icon_brand: string;
 }
@@ -54,6 +56,8 @@ interface Positive {
   text_hover: string;
   background_default: string;
   background_weak: string;
+  background_medium: string;
+  background_strong: string;
   background_data: string;
   background_brand: string;
   border_default: string;
@@ -88,7 +92,9 @@ interface Action {
   text_pressed: string;
   background_default: string;
   background_weak: string;
+  background_medium: string;
   background_strong: string;
+  background_disabled: string;
   background_hover: string;
   background_pressed: string;
   background_data: string;
@@ -105,9 +111,7 @@ interface Action {
   icon_brand: string;
 }
 interface Neutral {
-  /** @deprecated */
   text_default: string;
-  /** @deprecated */
   text_weak: string;
   text_medium: string;
   text_strong: string;
@@ -118,12 +122,19 @@ interface Neutral {
   background_weak_app: string;
   background_medium: string;
   background_strong: string;
+  background_hover: string;
   background_disabled: string;
   background_disabled_app: string;
+  /** @deprecated */
+  background_skeleton: string;
   background_active: string;
   background_inactive: string;
   background_focus: string;
-  background_brand: string;
+  background_focus_hover: string;
+  background_focus_pressed: string;
+  background_data: string;
+  background_brand_black: string;
+  background_brand_white: string;
   background_content: string;
   background_overlay: string;
   border_default: string;
@@ -155,12 +166,18 @@ export const colors: LightTheme = {
       background_weak_app: "#f5f5f5ff",
       background_medium: "#f5f5f5ff",
       background_strong: "#e0e0e0ff",
+      background_hover: "#f5f5f5ff",
       background_disabled: "#eeeeeeff",
       background_disabled_app: "#eeeeeeff",
+      background_skeleton: "#eeeeeeff",
       background_active: "#ffffffff",
       background_inactive: "#424242ff",
       background_focus: "#212121ff",
-      background_brand: "#000000ff",
+      background_focus_hover: "#424242ff",
+      background_focus_pressed: "#6e6e6eff",
+      background_data: "#6e6e6eff",
+      background_brand_black: "#000000ff",
+      background_brand_white: "#ffffffff",
       background_content: "#ffffffff",
       background_overlay: "#00000066",
       border_default: "#bdbdbdff",
@@ -185,7 +202,9 @@ export const colors: LightTheme = {
       text_pressed: "#1f4099ff",
       background_default: "#336bffff",
       background_weak: "#eaf0ffff",
+      background_medium: "#adc4ffff",
       background_strong: "#1f4099ff",
+      background_disabled: "#d6e1ffff",
       background_hover: "#2650bfff",
       background_pressed: "#1f4099ff",
       background_data: "#2650bfff",
@@ -226,6 +245,8 @@ export const colors: LightTheme = {
       text_hover: "#368716ff",
       background_default: "#41a21aff",
       background_weak: "#edfae8ff",
+      background_medium: "#85da62ff",
+      background_strong: "#41a21aff",
       background_data: "#b9eaa6ff",
       background_brand: "#d2f500ff",
       border_default: "#41a21aff",
@@ -264,6 +285,8 @@ export const colors: LightTheme = {
       background_weak: "#e5fdfcff",
       background_strong: "#00605aff",
       background_brand: "#00f0e1ff",
+      background_brand_hover: "#99f9f3ff",
+      background_brand_pressed: "#ccfcf9ff",
       icon_default: "#009087ff",
       icon_brand: "#00f0e1ff",
     },
