@@ -46,7 +46,7 @@ jobs:
         if: github.event.client_payload.commitMessage != ''
         with:
           commit-message: "feat: ${{github.event.client_payload.commitMessage}}"
-          title: "feat: design tokens update"
+          title: "feat: ${{github.event.client_payload.commitMessage}}"
           branch: feat/tokens-update
           branch-suffix: timestamp
 
