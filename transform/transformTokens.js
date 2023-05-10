@@ -37,32 +37,34 @@ const supportedThemes = ["light", "dark", "a11y"];
 const incomingUpdatesDirPath = "./tokens/updates";
 const currentTokensPath = "./tokens/designTokens.json";
 
-const incomingUpdatesFileNames = fs.readdirSync(incomingUpdatesDirPath);
+if (fs.existsSync(incomingUpdatesDirPath)) {
+  const incomingUpdatesFileNames = fs.readdirSync(incomingUpdatesDirPath);
 
-incomingUpdatesFileNames.map((fileName) => {
-  const incomingUpdatesFilePath = `${incomingUpdatesDirPath}/${fileName}`;
-  const incomingUpdatesFile = fs.readFileSync(incomingUpdatesFilePath);
-  const incomingUpdates = JSON.parse(incomingUpdatesFile);
-  const themesToReplace = Object.keys(incomingUpdates.color);
+  incomingUpdatesFileNames.map((fileName) => {
+    const incomingUpdatesFilePath = `${incomingUpdatesDirPath}/${fileName}`;
+    const incomingUpdatesFile = fs.readFileSync(incomingUpdatesFilePath);
+    const incomingUpdates = JSON.parse(incomingUpdatesFile);
+    const themesToReplace = Object.keys(incomingUpdates.color);
 
-  const currentTokensFile = fs.readFileSync(currentTokensPath);
-  const currentTokens = JSON.parse(currentTokensFile);
-  let updatedTokens = currentTokens;
+    const currentTokensFile = fs.readFileSync(currentTokensPath);
+    const currentTokens = JSON.parse(currentTokensFile);
+    let updatedTokens = currentTokens;
 
-  themesToReplace.map((theme) => {
-    updatedTokens.color[theme] = incomingUpdates.color[theme];
+    themesToReplace.map((theme) => {
+      updatedTokens.color[theme] = incomingUpdates.color[theme];
+    });
+
+    const updatedTokensJson = JSON.stringify(updatedTokens, null, 2);
+    fs.writeFileSync(currentTokensPath, updatedTokensJson);
+    log("Updated tokens");
+
+    fs.unlink(incomingUpdatesFilePath, (err) => {
+      if (err) {
+        throw err;
+      }
+    });
   });
-
-  const updatedTokensJson = JSON.stringify(updatedTokens, null, 2);
-  fs.writeFileSync(currentTokensPath, updatedTokensJson);
-  log("Updated tokens");
-
-  fs.unlink(incomingUpdatesFilePath, (err) => {
-    if (err) {
-      throw err;
-    }
-  });
-});
+}
 
 supportedThemes.map((theme) => {
   log(`Compiling tokens for the ${theme.toUpperCase()} theme`);
