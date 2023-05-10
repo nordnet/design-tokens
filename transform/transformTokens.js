@@ -34,12 +34,15 @@ function deprecateTokens(paths, interfaceString) {
 
 const { fileHeader } = StyleDictionary.formatHelpers;
 const supportedThemes = ["light", "dark", "a11y"];
-const incomingUpdatesFilePath = "./tokens/updates/designTokens.json";
+const incomingUpdatesDirPath = "./tokens/updates";
 const currentTokensPath = "./tokens/designTokens.json";
 
-if (fs.existsSync(incomingUpdatesFilePath)) {
-  log("Found new tokens");
-  const incomingUpdatesFile = fs.readFileSync(incomingUpdatesFilePath);
+const incomingUpdatesFileNames = fs.readdirSync(incomingUpdatesDirPath);
+
+incomingUpdatesFileNames.map((fileName) => {
+  const incomingUpdatesFile = fs.readFileSync(
+    `${incomingUpdatesDirPath}/${fileName}`
+  );
   const incomingUpdates = JSON.parse(incomingUpdatesFile);
   const themesToReplace = Object.keys(incomingUpdates.color);
 
@@ -60,7 +63,7 @@ if (fs.existsSync(incomingUpdatesFilePath)) {
       throw err;
     }
   });
-}
+});
 
 supportedThemes.map((theme) => {
   log(`Compiling tokens for the ${theme.toUpperCase()} theme`);
