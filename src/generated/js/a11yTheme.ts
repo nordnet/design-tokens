@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 04 May 2023 11:55:44 GMT
+ * Generated on Wed, 10 May 2023 10:50:28 GMT
  */
 
 export interface A11yTheme {
@@ -56,6 +56,8 @@ interface Positive {
   text_hover: string;
   background_default: string;
   background_weak: string;
+  background_medium: string;
+  background_strong: string;
   background_data: string;
   background_brand: string;
   border_default: string;
@@ -120,6 +122,7 @@ interface Neutral {
   background_weak_app: string;
   background_medium: string;
   background_strong: string;
+  background_hover: string;
   background_disabled: string;
   background_disabled_app: string;
   background_skeleton: string;
@@ -128,8 +131,9 @@ interface Neutral {
   background_focus: string;
   background_focus_hover: string;
   background_focus_pressed: string;
-  background_brand_dark: string;
-  background_brand_light: string;
+  background_data: string;
+  background_brand_black: string;
+  background_brand_white: string;
   background_content: string;
   background_overlay: string;
   border_default: string;
@@ -161,6 +165,7 @@ export const colors: A11yTheme = {
       background_weak_app: "#f5f5f5ff",
       background_medium: "#f5f5f5ff",
       background_strong: "#e0e0e0ff",
+      background_hover: "#f5f5f5ff",
       background_disabled: "#eeeeeeff",
       background_disabled_app: "#eeeeeeff",
       background_skeleton: "#eeeeeeff",
@@ -169,8 +174,9 @@ export const colors: A11yTheme = {
       background_focus: "#212121ff",
       background_focus_hover: "#424242ff",
       background_focus_pressed: "#6e6e6eff",
-      background_brand_dark: "#000000ff",
-      background_brand_light: "#ffffffff",
+      background_data: "#6e6e6eff",
+      background_brand_black: "#000000ff",
+      background_brand_white: "#ffffffff",
       background_content: "#ffffffff",
       background_overlay: "#00000066",
       border_default: "#bdbdbdff",
@@ -238,6 +244,8 @@ export const colors: A11yTheme = {
       text_hover: "#142b66ff",
       background_default: "#1f4099ff",
       background_weak: "#edfae8ff",
+      background_medium: "#85da62ff",
+      background_strong: "#41a21aff",
       background_data: "#b9eaa6ff",
       background_brand: "#d2f500ff",
       border_default: "#41a21aff",
