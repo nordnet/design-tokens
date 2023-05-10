@@ -32,7 +32,6 @@ function deprecateTokens(paths, interfaceString) {
   return output;
 }
 
-const { fileHeader } = StyleDictionary.formatHelpers;
 const supportedThemes = ["light", "dark", "a11y"];
 const incomingUpdatesDirPath = "./tokens/updates";
 const currentTokensPath = "./tokens/designTokens.json";
@@ -79,27 +78,8 @@ supportedThemes.map((theme) => {
   });
 
   StyleDictionary.registerFormat({
-    name: "custom/typescript/es6-declarations",
-    formatter: function ({ dictionary, file }) {
-      return (
-        fileHeader({ file }) +
-        dictionary.allTokens
-          .map(function (token) {
-            return `export declare const ${token.name}: '${token.value}';`;
-          })
-          .join("\n")
-      );
-    },
-  });
-
-  StyleDictionary.registerFormat({
     name: "custom/javascript/esm",
-    formatter: function ({
-      dictionary,
-      file,
-      options: _options,
-      platform = {},
-    }) {
+    formatter: function ({ dictionary, options: _options, platform = {} }) {
       const typesName = `${capitalizeFirstLetter(theme)}Theme`;
       const { prefix } = platform;
       const tokens = prefix
@@ -125,7 +105,6 @@ supportedThemes.map((theme) => {
       );
 
       const output =
-        fileHeader({ file }) +
         `export ${typesWithDeprecations}` +
         `export const colors: ${typesName} = \n${JSON.stringify(
           nestedValues,

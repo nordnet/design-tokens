@@ -1,8 +1,3 @@
-/**
- * Do not edit directly
- * Generated on Wed, 10 May 2023 13:02:22 GMT
- */
-
 export interface DarkTheme {
   color: Color;
 }
