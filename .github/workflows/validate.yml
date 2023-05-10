@@ -3,7 +3,8 @@ on:
   push:
     branches:
       - main
-  pull_request:
+  # pull_request:
+  # disabled pull_request because updates comes in batches in separate branches so the tests will always fail until all updates is merged
 
 jobs:
   validate:
