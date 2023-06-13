@@ -57,6 +57,7 @@ interface Positive {
   background_brand: string;
   border_default: string;
   icon_default: string;
+  icon_focus: string;
   icon_hover: string;
   icon_data: string;
   icon_brand: string;
@@ -70,7 +71,9 @@ interface Negative {
   background_weak: string;
   background_medium: string;
   background_strong: string;
-  background_data: string;
+  background_data_graph: string;
+  background_data_primary: string;
+  background_data_secondary: string;
   background_hover: string;
   background_pressed: string;
   background_brand: string;
@@ -83,8 +86,10 @@ interface Negative {
 interface Action {
   text_default: string;
   text_medium: string;
+  text_focus: string;
   text_hover: string;
   text_pressed: string;
+  text_data: string;
   background_default: string;
   background_weak: string;
   background_medium: string;
@@ -92,10 +97,13 @@ interface Action {
   background_disabled: string;
   background_hover: string;
   background_pressed: string;
-  background_data: string;
+  background_data_risk: string;
+  background_data_primary: string;
+  background_data_secondary: string;
   background_brand: string;
   border_default: string;
   border_weak: string;
+  border_focus: string;
   border_hover: string;
   border_pressed: string;
   border_data: string;
@@ -177,9 +185,9 @@ export const colors: A11yTheme = {
       border_default: "#bdbdbdff",
       border_weak: "#eeeeeeff",
       border_weak_app: "#eeeeeeff",
-      border_medium: "#eeeeeeff",
+      border_medium: "#e0e0e0ff",
       border_strong: "#ffffffff",
-      border_disabled: "#9e9e9eff",
+      border_disabled: "#eeeeeeff",
       border_hover: "#6e6e6eff",
       icon_default: "#212121ff",
       icon_weak: "#6e6e6eff",
@@ -192,8 +200,10 @@ export const colors: A11yTheme = {
     action: {
       text_default: "#336bffff",
       text_medium: "#336bffff",
+      text_focus: "#6690ffff",
       text_hover: "#2650bfff",
       text_pressed: "#1f4099ff",
+      text_data: "#336bffff",
       background_default: "#336bffff",
       background_weak: "#eaf0ffff",
       background_medium: "#adc4ffff",
@@ -201,10 +211,13 @@ export const colors: A11yTheme = {
       background_disabled: "#d6e1ffff",
       background_hover: "#2650bfff",
       background_pressed: "#1f4099ff",
-      background_data: "#2650bfff",
+      background_data_risk: "#2650bfff",
+      background_data_primary: "#2650bfff",
+      background_data_secondary: "#6690ffff",
       background_brand: "#00c8f5ff",
       border_default: "#336bffff",
       border_weak: "#adc4ffff",
+      border_focus: "#d6e1ffff",
       border_hover: "#2650bfff",
       border_pressed: "#1f4099ff",
       border_data: "#336bffff",
@@ -223,7 +236,9 @@ export const colors: A11yTheme = {
       background_weak: "#f6e7eeff",
       background_medium: "#cc2269ff",
       background_strong: "#ac135aff",
-      background_data: "#ffaacdff",
+      background_data_graph: "#ffaacdff",
+      background_data_primary: "#cc2269ff",
+      background_data_secondary: "#ff2b83ff",
       background_hover: "#ac135aff",
       background_pressed: "#78013aff",
       background_brand: "#ff2b83ff",
@@ -245,6 +260,7 @@ export const colors: A11yTheme = {
       background_brand: "#d2f500ff",
       border_default: "#41a21aff",
       icon_default: "#41a21aff",
+      icon_focus: "#51cb20ff",
       icon_hover: "#368716ff",
       icon_data: "#41a21aff",
       icon_brand: "#d2f500ff",
