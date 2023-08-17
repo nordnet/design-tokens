@@ -50,6 +50,18 @@
             }
           }
         },
+        "text_focus": {
+          "description": "",
+          "type": "color",
+          "value": "#212121ff",
+          "blendMode": "normal",
+          "extensions": {
+            "org.lukasoppermann.figmaDesignTokens": {
+              "styleId": "S:81018ce06a4c12659812e33bedd592296b8ec4dd,",
+              "exportKey": "color"
+            }
+          }
+        },
         "text_disabled": {
           "description": "",
           "type": "color",
@@ -341,7 +353,7 @@
         "border_medium": {
           "description": "",
           "type": "color",
-          "value": "#eeeeeeff",
+          "value": "#e0e0e0ff",
           "blendMode": "normal",
           "extensions": {
             "org.lukasoppermann.figmaDesignTokens": {
@@ -351,6 +363,18 @@
           }
         },
         "border_strong": {
+          "description": "",
+          "type": "color",
+          "value": "#f5f5f5ff",
+          "blendMode": "normal",
+          "extensions": {
+            "org.lukasoppermann.figmaDesignTokens": {
+              "styleId": "S:6d3248bfba478d09747bdf12425420f38941ba9f,",
+              "exportKey": "color"
+            }
+          }
+        },
+        "border_focus": {
           "description": "",
           "type": "color",
           "value": "#ffffffff",
@@ -365,7 +389,7 @@
         "border_disabled": {
           "description": "",
           "type": "color",
-          "value": "#bdbdbdff",
+          "value": "#eeeeeeff",
           "blendMode": "normal",
           "extensions": {
             "org.lukasoppermann.figmaDesignTokens": {
@@ -382,6 +406,18 @@
           "extensions": {
             "org.lukasoppermann.figmaDesignTokens": {
               "styleId": "S:4756f98fd451e472e52286fac396db85120f42c1,",
+              "exportKey": "color"
+            }
+          }
+        },
+        "border_brand": {
+          "description": "",
+          "type": "color",
+          "value": "#0000001a",
+          "blendMode": "normal",
+          "extensions": {
+            "org.lukasoppermann.figmaDesignTokens": {
+              "styleId": "S:b5042cf842dc52a19aeafaf44f794f8b3381bf2c,",
               "exportKey": "color"
             }
           }
@@ -457,18 +493,6 @@
               "exportKey": "color"
             }
           }
-        },
-        "border_brand": {
-          "description": "",
-          "type": "color",
-          "value": "#0000001a",
-          "blendMode": "normal",
-          "extensions": {
-            "org.lukasoppermann.figmaDesignTokens": {
-              "styleId": "S:b5042cf842dc52a19aeafaf44f794f8b3381bf2c,",
-              "exportKey": "color"
-            }
-          }
         }
       },
       "action": {
@@ -492,6 +516,18 @@
           "extensions": {
             "org.lukasoppermann.figmaDesignTokens": {
               "styleId": "S:69c182cccd151cc38cce5641e3f015f299a4bccb,",
+              "exportKey": "color"
+            }
+          }
+        },
+        "text_focus": {
+          "description": "",
+          "type": "color",
+          "value": "#6690ffff",
+          "blendMode": "normal",
+          "extensions": {
+            "org.lukasoppermann.figmaDesignTokens": {
+              "styleId": "S:0ff0842b0b9fe70e45a649c4530f38e9efb16a93,",
               "exportKey": "color"
             }
           }
@@ -520,6 +556,18 @@
             }
           }
         },
+        "text_data": {
+          "description": "",
+          "type": "color",
+          "value": "#336bffff",
+          "blendMode": "normal",
+          "extensions": {
+            "org.lukasoppermann.figmaDesignTokens": {
+              "styleId": "S:218f0d9bd871d2a2ced119afecf8af23715c85de,",
+              "exportKey": "color"
+            }
+          }
+        },
         "background_default": {
           "description": "",
           "type": "color",
@@ -540,6 +588,18 @@
           "extensions": {
             "org.lukasoppermann.figmaDesignTokens": {
               "styleId": "S:493db8fa27910052f26b9aff91b54da0eccc1e10,",
+              "exportKey": "color"
+            }
+          }
+        },
+        "background_weak_app": {
+          "description": "",
+          "type": "color",
+          "value": "#eaf0ffff",
+          "blendMode": "normal",
+          "extensions": {
+            "org.lukasoppermann.figmaDesignTokens": {
+              "styleId": "S:9c0b54f3008bd19dcec4088abdad40215cb71d53,",
               "exportKey": "color"
             }
           }
@@ -604,7 +664,7 @@
             }
           }
         },
-        "background_data": {
+        "background_data_risk": {
           "description": "",
           "type": "color",
           "value": "#2650bfff",
@@ -612,6 +672,30 @@
           "extensions": {
             "org.lukasoppermann.figmaDesignTokens": {
               "styleId": "S:e1ed9e39b048d3fb2c7929bc166f608843cf9b03,",
+              "exportKey": "color"
+            }
+          }
+        },
+        "background_data_primary": {
+          "description": "",
+          "type": "color",
+          "value": "#2650bfff",
+          "blendMode": "normal",
+          "extensions": {
+            "org.lukasoppermann.figmaDesignTokens": {
+              "styleId": "S:94cb041c4382925b871f015da9d93be50e35b3bf,",
+              "exportKey": "color"
+            }
+          }
+        },
+        "background_data_secondary": {
+          "description": "",
+          "type": "color",
+          "value": "#6690ffff",
+          "blendMode": "normal",
+          "extensions": {
+            "org.lukasoppermann.figmaDesignTokens": {
+              "styleId": "S:77f59299256f8c980b34fa7e4e6e1e33f3a7d7b4,",
               "exportKey": "color"
             }
           }
@@ -648,6 +732,18 @@
           "extensions": {
             "org.lukasoppermann.figmaDesignTokens": {
               "styleId": "S:75a3e4e6525a6098ad15b584d582b3a58d550942,",
+              "exportKey": "color"
+            }
+          }
+        },
+        "border_focus": {
+          "description": "",
+          "type": "color",
+          "value": "#d6e1ffff",
+          "blendMode": "normal",
+          "extensions": {
+            "org.lukasoppermann.figmaDesignTokens": {
+              "styleId": "S:0b6c86020dca19e1cc73b58834d4b026ab74ff7f,",
               "exportKey": "color"
             }
           }
@@ -846,7 +942,7 @@
             }
           }
         },
-        "background_data": {
+        "background_data_graph": {
           "description": "",
           "type": "color",
           "value": "#ffaacdff",
@@ -854,6 +950,30 @@
           "extensions": {
             "org.lukasoppermann.figmaDesignTokens": {
               "styleId": "S:85d92df5da7a3a62704f4343cf204544f42860c3,",
+              "exportKey": "color"
+            }
+          }
+        },
+        "background_data_primary": {
+          "description": "",
+          "type": "color",
+          "value": "#cc2269ff",
+          "blendMode": "normal",
+          "extensions": {
+            "org.lukasoppermann.figmaDesignTokens": {
+              "styleId": "S:a72521e436eaada7d7d2c3e3302b545630fcd5e4,",
+              "exportKey": "color"
+            }
+          }
+        },
+        "background_data_secondary": {
+          "description": "",
+          "type": "color",
+          "value": "#ff2b83ff",
+          "blendMode": "normal",
+          "extensions": {
+            "org.lukasoppermann.figmaDesignTokens": {
+              "styleId": "S:1c6e23404c364ff26e712df5a1f58ca6a0bce253,",
               "exportKey": "color"
             }
           }
@@ -1084,6 +1204,18 @@
           "extensions": {
             "org.lukasoppermann.figmaDesignTokens": {
               "styleId": "S:5eb4e54c7fb33f3da4a792071fa7460e4c518a25,",
+              "exportKey": "color"
+            }
+          }
+        },
+        "icon_focus": {
+          "description": "",
+          "type": "color",
+          "value": "#51cb20ff",
+          "blendMode": "normal",
+          "extensions": {
+            "org.lukasoppermann.figmaDesignTokens": {
+              "styleId": "S:7e0b88c3cbaccd7a1ebfefa5780a0a90d1524fbf,",
               "exportKey": "color"
             }
           }
