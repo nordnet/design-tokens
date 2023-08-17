@@ -34,3 +34,7 @@ This project generates design tokens for each theme in the following formats:
 ## Limitations
 
 GitHub Actions has a payload limit of 50kB, which prevents exporting all design tokens at once. To circumvent this limitation, we export tokens in chunks by creating a new branch for each chunk. When these new branches are merged, tests run in the master branch to verify that all themes have the same token names. Only then do we release a new version.
+
+## Handling pull requests
+
+As mentioned in the Limitations section updates to tokens will come in chunks ( usually one PR per theme ). Merge these PR's together until you only have one PR, that one then merges into the main/master branch. This way, if there is a breaking change we can do a breaking change commit into one branch. Also the release github action only runs one time.
