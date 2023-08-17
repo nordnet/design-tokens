@@ -57,6 +57,7 @@ interface Positive {
   background_brand: string;
   border_default: string;
   icon_default: string;
+  icon_focus: string;
   icon_hover: string;
   icon_data: string;
   icon_brand: string;
@@ -70,7 +71,9 @@ interface Negative {
   background_weak: string;
   background_medium: string;
   background_strong: string;
-  background_data: string;
+  background_data_graph: string;
+  background_data_primary: string;
+  background_data_secondary: string;
   background_hover: string;
   background_pressed: string;
   background_brand: string;
@@ -83,19 +86,25 @@ interface Negative {
 interface Action {
   text_default: string;
   text_medium: string;
+  text_focus: string;
   text_hover: string;
   text_pressed: string;
+  text_data: string;
   background_default: string;
   background_weak: string;
+  background_weak_app: string;
   background_medium: string;
   background_strong: string;
   background_disabled: string;
   background_hover: string;
   background_pressed: string;
-  background_data: string;
+  background_data_risk: string;
+  background_data_primary: string;
+  background_data_secondary: string;
   background_brand: string;
   border_default: string;
   border_weak: string;
+  border_focus: string;
   border_hover: string;
   border_pressed: string;
   border_data: string;
@@ -110,6 +119,7 @@ interface Neutral {
   text_weak: string;
   text_medium: string;
   text_strong: string;
+  text_focus: string;
   text_disabled: string;
   background_default: string;
   background_default_app: string;
@@ -137,15 +147,16 @@ interface Neutral {
   border_weak_app: string;
   border_medium: string;
   border_strong: string;
+  border_focus: string;
   border_disabled: string;
   border_hover: string;
+  border_brand: string;
   icon_default: string;
   icon_weak: string;
   icon_medium: string;
   icon_strong: string;
   icon_disabled: string;
   icon_brand: string;
-  border_brand: string;
 }
 export const colors: LightTheme = {
   color: {
@@ -154,6 +165,7 @@ export const colors: LightTheme = {
       text_weak: "#6e6e6eff",
       text_medium: "#ffffffff",
       text_strong: "#ffffffff",
+      text_focus: "#212121ff",
       text_disabled: "#9e9e9eff",
       background_default: "#ffffffff",
       background_default_app: "#ffffffff",
@@ -178,34 +190,41 @@ export const colors: LightTheme = {
       border_default: "#bdbdbdff",
       border_weak: "#eeeeeeff",
       border_weak_app: "#eeeeeeff",
-      border_medium: "#eeeeeeff",
-      border_strong: "#ffffffff",
-      border_disabled: "#bdbdbdff",
+      border_medium: "#e0e0e0ff",
+      border_strong: "#f5f5f5ff",
+      border_focus: "#ffffffff",
+      border_disabled: "#eeeeeeff",
       border_hover: "#6e6e6eff",
+      border_brand: "#0000001a",
       icon_default: "#212121ff",
       icon_weak: "#6e6e6eff",
       icon_medium: "#ffffffff",
       icon_strong: "#ffffffff",
       icon_disabled: "#9e9e9eff",
       icon_brand: "#212121ff",
-      border_brand: "#0000001a",
     },
     action: {
       text_default: "#336bffff",
       text_medium: "#336bffff",
+      text_focus: "#6690ffff",
       text_hover: "#2650bfff",
       text_pressed: "#1f4099ff",
+      text_data: "#336bffff",
       background_default: "#336bffff",
       background_weak: "#eaf0ffff",
+      background_weak_app: "#eaf0ffff",
       background_medium: "#adc4ffff",
       background_strong: "#1f4099ff",
       background_disabled: "#d6e1ffff",
       background_hover: "#2650bfff",
       background_pressed: "#1f4099ff",
-      background_data: "#2650bfff",
+      background_data_risk: "#2650bfff",
+      background_data_primary: "#2650bfff",
+      background_data_secondary: "#6690ffff",
       background_brand: "#00c8f5ff",
       border_default: "#336bffff",
       border_weak: "#adc4ffff",
+      border_focus: "#d6e1ffff",
       border_hover: "#2650bfff",
       border_pressed: "#1f4099ff",
       border_data: "#336bffff",
@@ -224,7 +243,9 @@ export const colors: LightTheme = {
       background_weak: "#f6e7eeff",
       background_medium: "#cc2269ff",
       background_strong: "#ac135aff",
-      background_data: "#ffaacdff",
+      background_data_graph: "#ffaacdff",
+      background_data_primary: "#cc2269ff",
+      background_data_secondary: "#ff2b83ff",
       background_hover: "#ac135aff",
       background_pressed: "#78013aff",
       background_brand: "#ff2b83ff",
@@ -246,6 +267,7 @@ export const colors: LightTheme = {
       background_brand: "#d2f500ff",
       border_default: "#41a21aff",
       icon_default: "#41a21aff",
+      icon_focus: "#51cb20ff",
       icon_hover: "#368716ff",
       icon_data: "#41a21aff",
       icon_brand: "#d2f500ff",
