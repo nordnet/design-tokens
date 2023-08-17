@@ -57,6 +57,7 @@ interface Positive {
   background_brand: string;
   border_default: string;
   icon_default: string;
+  icon_focus: string;
   icon_hover: string;
   icon_data: string;
   icon_brand: string;
@@ -69,7 +70,9 @@ interface Negative {
   background_weak: string;
   background_medium: string;
   background_strong: string;
-  background_data: string;
+  background_data_graph: string;
+  background_data_primary: string;
+  background_data_secondary: string;
   background_hover: string;
   background_pressed: string;
   background_brand: string;
@@ -83,19 +86,25 @@ interface Negative {
 interface Action {
   text_default: string;
   text_medium: string;
+  text_focus: string;
   text_hover: string;
   text_pressed: string;
+  text_data: string;
   background_default: string;
   background_weak: string;
+  background_weak_app: string;
   background_medium: string;
   background_strong: string;
   background_disabled: string;
   background_hover: string;
   background_pressed: string;
-  background_data: string;
+  background_data_risk: string;
+  background_data_primary: string;
+  background_data_secondary: string;
   background_brand: string;
   border_default: string;
   border_weak: string;
+  border_focus: string;
   border_hover: string;
   border_pressed: string;
   border_data: string;
@@ -110,6 +119,7 @@ interface Neutral {
   text_weak: string;
   text_medium: string;
   text_strong: string;
+  text_focus: string;
   text_disabled: string;
   background_default: string;
   background_default_app: string;
@@ -136,15 +146,16 @@ interface Neutral {
   border_weak_app: string;
   border_medium: string;
   border_strong: string;
+  border_focus: string;
   border_disabled: string;
   border_hover: string;
+  border_brand: string;
   icon_default: string;
   icon_weak: string;
   icon_medium: string;
   icon_strong: string;
   icon_disabled: string;
   icon_brand: string;
-  border_brand: string;
 }
 export const colors: DarkTheme = {
   color: {
@@ -153,6 +164,7 @@ export const colors: DarkTheme = {
       text_weak: "#bdbdbdff",
       text_medium: "#212121ff",
       text_strong: "#ffffffff",
+      text_focus: "#212121ff",
       text_disabled: "#6e6e6eff",
       background_default: "#212121ff",
       background_default_app: "#121212ff",
@@ -178,33 +190,40 @@ export const colors: DarkTheme = {
       border_weak: "#121212ff",
       border_weak_app: "#212121ff",
       border_medium: "#424242ff",
-      border_strong: "#212121ff",
+      border_strong: "#000000ff",
+      border_focus: "#212121ff",
       border_disabled: "#424242ff",
       border_hover: "#bdbdbdff",
+      border_brand: "#ffffff26",
       icon_default: "#ffffffff",
       icon_weak: "#bdbdbdff",
       icon_medium: "#212121ff",
       icon_strong: "#ffffffff",
       icon_disabled: "#6e6e6eff",
       icon_brand: "#212121ff",
-      border_brand: "#ffffff26",
     },
     action: {
       text_default: "#6690ffff",
       text_medium: "#ffffffff",
+      text_focus: "#336bffff",
       text_hover: "#adc4ffff",
       text_pressed: "#d6e1ffff",
+      text_data: "#00f0e1ff",
       background_default: "#336bffff",
       background_weak: "#142b66ff",
+      background_weak_app: "#1f4099ff",
       background_medium: "#1f4099ff",
       background_strong: "#1f4099ff",
       background_disabled: "#1f4099ff",
       background_hover: "#2650bfff",
       background_pressed: "#1f4099ff",
-      background_data: "#00c0b4ff",
+      background_data_risk: "#00c0b4ff",
+      background_data_primary: "#6690ffff",
+      background_data_secondary: "#2650bfff",
       background_brand: "#00c8f5ff",
       border_default: "#336bffff",
       border_weak: "#0a1533ff",
+      border_focus: "#1f4099ff",
       border_hover: "#adc4ffff",
       border_pressed: "#d6e1ffff",
       border_data: "#00f0e1ff",
@@ -222,7 +241,9 @@ export const colors: DarkTheme = {
       background_weak: "#590f2eff",
       background_medium: "#ff2b83ff",
       background_strong: "#ac135aff",
-      background_data: "#ac135aff",
+      background_data_graph: "#ac135aff",
+      background_data_primary: "#ff2b83ff",
+      background_data_secondary: "#cc2269ff",
       background_hover: "#ac135aff",
       background_pressed: "#78013aff",
       background_brand: "#ff2b83ff",
@@ -245,6 +266,7 @@ export const colors: DarkTheme = {
       background_brand: "#d2f500ff",
       border_default: "#51cb20ff",
       icon_default: "#51cb20ff",
+      icon_focus: "#41a21aff",
       icon_hover: "#85da62ff",
       icon_data: "#336bffff",
       icon_brand: "#d2f500ff",
