@@ -37,4 +37,4 @@ GitHub Actions has a payload limit of 50kB, which prevents exporting all design 
 
 ## Handling pull requests
 
-As mentioned in the Limitations section updates to tokens will come in chunks ( usually one PR per theme ). Merge these PR's together until you only have one PR, that one then merges into the main/master branch. This way, if there is a breaking change we can do a breaking change commit into one branch. Also the release github action only runs one time.
+As mentioned in the Limitations section, updates to tokens will come in chunks (usually one PR per theme). Merge these PRs together until only one PR remains, which can then be merged into the main/master branch. This approach ensures that all information regarding the update (all the chunks) can be found in one place, and in case of a breaking change, we can make a breaking change commit in a single branch. Furthermore, the release GitHub action runs only once.
