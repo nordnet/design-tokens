@@ -92,13 +92,13 @@ interface Action {
   text_data: string;
   background_default: string;
   background_weak: string;
-  background_weak_app: string;
   background_medium: string;
   background_strong: string;
   background_disabled: string;
   background_hover: string;
   background_pressed: string;
   background_data_risk: string;
+  background_data_allocation: string;
   background_data_primary: string;
   background_data_secondary: string;
   background_brand: string;
@@ -122,14 +122,11 @@ interface Neutral {
   text_focus: string;
   text_disabled: string;
   background_default: string;
-  background_default_app: string;
   background_weak: string;
-  background_weak_app: string;
   background_medium: string;
   background_strong: string;
   background_hover: string;
   background_disabled: string;
-  background_disabled_app: string;
   background_skeleton: string;
   background_active: string;
   background_inactive: string;
@@ -139,13 +136,12 @@ interface Neutral {
   background_data: string;
   background_brand_black: string;
   background_brand_white: string;
-  background_content: string;
   background_overlay: string;
   border_default: string;
   border_weak: string;
-  border_weak_app: string;
   border_medium: string;
   border_strong: string;
+  border_active: string;
   border_focus: string;
   border_disabled: string;
   border_hover: string;
@@ -160,47 +156,43 @@ interface Neutral {
 export const colors: A11yTheme = {
   color: {
     neutral: {
-      text_default: "#212121ff",
+      text_default: "#1c1c1cff",
       text_weak: "#6e6e6eff",
       text_medium: "#ffffffff",
       text_strong: "#ffffffff",
-      text_focus: "#212121ff",
+      text_focus: "#1c1c1cff",
       text_disabled: "#9e9e9eff",
       background_default: "#ffffffff",
-      background_default_app: "#ffffffff",
-      background_weak: "#f5f5f5ff",
-      background_weak_app: "#f5f5f5ff",
+      background_weak: "#ffffffff",
       background_medium: "#f5f5f5ff",
-      background_strong: "#e0e0e0ff",
+      background_strong: "#ffffffff",
       background_hover: "#f5f5f5ff",
       background_disabled: "#eeeeeeff",
-      background_disabled_app: "#eeeeeeff",
       background_skeleton: "#eeeeeeff",
       background_active: "#ffffffff",
-      background_inactive: "#424242ff",
+      background_inactive: "#e0e0e0ff",
       background_focus: "#212121ff",
       background_focus_hover: "#424242ff",
       background_focus_pressed: "#6e6e6eff",
       background_data: "#6e6e6eff",
       background_brand_black: "#000000ff",
       background_brand_white: "#ffffffff",
-      background_content: "#ffffffff",
       background_overlay: "#00000066",
       border_default: "#bdbdbdff",
       border_weak: "#eeeeeeff",
-      border_weak_app: "#eeeeeeff",
-      border_medium: "#e0e0e0ff",
-      border_strong: "#f5f5f5ff",
+      border_medium: "#eeeeeeff",
+      border_strong: "#e0e0e0ff",
+      border_active: "#1c1c1cff",
       border_focus: "#ffffffff",
       border_disabled: "#eeeeeeff",
       border_hover: "#6e6e6eff",
       border_brand: "#0000001a",
-      icon_default: "#212121ff",
+      icon_default: "#1c1c1cff",
       icon_weak: "#6e6e6eff",
       icon_medium: "#ffffffff",
       icon_strong: "#ffffffff",
       icon_disabled: "#9e9e9eff",
-      icon_brand: "#212121ff",
+      icon_brand: "#1c1c1cff",
     },
     action: {
       text_default: "#336bffff",
@@ -211,13 +203,13 @@ export const colors: A11yTheme = {
       text_data: "#336bffff",
       background_default: "#336bffff",
       background_weak: "#eaf0ffff",
-      background_weak_app: "#eaf0ffff",
       background_medium: "#adc4ffff",
       background_strong: "#1f4099ff",
       background_disabled: "#d6e1ffff",
       background_hover: "#2650bfff",
       background_pressed: "#1f4099ff",
       background_data_risk: "#2650bfff",
+      background_data_allocation: "#eaf0ffff",
       background_data_primary: "#2650bfff",
       background_data_secondary: "#6690ffff",
       background_brand: "#00c8f5ff",
