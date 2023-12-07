@@ -92,13 +92,13 @@ interface Action {
   text_data: string;
   background_default: string;
   background_weak: string;
-  background_weak_app: string;
   background_medium: string;
   background_strong: string;
   background_disabled: string;
   background_hover: string;
   background_pressed: string;
   background_data_risk: string;
+  background_data_allocation: string;
   background_data_primary: string;
   background_data_secondary: string;
   background_brand: string;
@@ -122,14 +122,11 @@ interface Neutral {
   text_focus: string;
   text_disabled: string;
   background_default: string;
-  background_default_app: string;
   background_weak: string;
-  background_weak_app: string;
   background_medium: string;
   background_strong: string;
   background_hover: string;
   background_disabled: string;
-  background_disabled_app: string;
   background_skeleton: string;
   background_active: string;
   background_inactive: string;
@@ -139,13 +136,12 @@ interface Neutral {
   background_data: string;
   background_brand_black: string;
   background_brand_white: string;
-  background_content: string;
   background_overlay: string;
   border_default: string;
   border_weak: string;
-  border_weak_app: string;
   border_medium: string;
   border_strong: string;
+  border_active: string;
   border_focus: string;
   border_disabled: string;
   border_hover: string;
@@ -166,41 +162,37 @@ export const colors: DarkTheme = {
       text_strong: "#ffffffff",
       text_focus: "#212121ff",
       text_disabled: "#6e6e6eff",
-      background_default: "#212121ff",
-      background_default_app: "#121212ff",
+      background_default: "#1c1c1cff",
       background_weak: "#121212ff",
-      background_weak_app: "#212121ff",
-      background_medium: "#424242ff",
-      background_strong: "#424242ff",
-      background_hover: "#42424280",
-      background_disabled: "#121212ff",
-      background_disabled_app: "#212121ff",
-      background_skeleton: "#424242ff",
-      background_active: "#424242ff",
-      background_inactive: "#424242ff",
+      background_medium: "#262626ff",
+      background_strong: "#333333ff",
+      background_hover: "#33333380",
+      background_disabled: "#333333ff",
+      background_skeleton: "#333333ff",
+      background_active: "#262626ff",
+      background_inactive: "#333333ff",
       background_focus: "#ffffffff",
       background_focus_hover: "#f5f5f5ff",
       background_focus_pressed: "#eeeeeeff",
       background_data: "#bdbdbdff",
       background_brand_black: "#000000ff",
       background_brand_white: "#ffffffff",
-      background_content: "#000000ff",
       background_overlay: "#00000099",
       border_default: "#6e6e6eff",
-      border_weak: "#121212ff",
-      border_weak_app: "#212121ff",
-      border_medium: "#424242ff",
-      border_strong: "#000000ff",
-      border_focus: "#212121ff",
-      border_disabled: "#424242ff",
+      border_weak: "#262626ff",
+      border_medium: "#333333ff",
+      border_strong: "#333333ff",
+      border_active: "#ffffffff",
+      border_focus: "#1c1c1cff",
+      border_disabled: "#333333ff",
       border_hover: "#bdbdbdff",
       border_brand: "#ffffff26",
       icon_default: "#ffffffff",
       icon_weak: "#bdbdbdff",
-      icon_medium: "#212121ff",
+      icon_medium: "#1c1c1cff",
       icon_strong: "#ffffffff",
       icon_disabled: "#6e6e6eff",
-      icon_brand: "#212121ff",
+      icon_brand: "#1c1c1cff",
     },
     action: {
       text_default: "#6690ffff",
@@ -211,19 +203,19 @@ export const colors: DarkTheme = {
       text_data: "#00f0e1ff",
       background_default: "#336bffff",
       background_weak: "#142b66ff",
-      background_weak_app: "#1f4099ff",
       background_medium: "#1f4099ff",
       background_strong: "#1f4099ff",
       background_disabled: "#1f4099ff",
       background_hover: "#2650bfff",
       background_pressed: "#1f4099ff",
       background_data_risk: "#00c0b4ff",
+      background_data_allocation: "#1f4099ff",
       background_data_primary: "#6690ffff",
       background_data_secondary: "#2650bfff",
       background_brand: "#00c8f5ff",
       border_default: "#336bffff",
       border_weak: "#0a1533ff",
-      border_focus: "#1f4099ff",
+      border_focus: "#2650bfff",
       border_hover: "#adc4ffff",
       border_pressed: "#d6e1ffff",
       border_data: "#00f0e1ff",
