@@ -1,6 +1,6 @@
 function getConfig(theme) {
   return {
-    source: ["tokens/*.json"],
+    source: ["src/tokens/*.json"],
     platforms: {
       css: {
         buildPath: `src/generated/css/`,

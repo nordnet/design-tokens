@@ -2,7 +2,7 @@ const StyleDictionary = require("style-dictionary");
 const fs = require("node:fs");
 const { format } = require("prettier");
 const jsonToTs = require("json-to-ts");
-const { getConfig } = require("./config");
+const { getConfig } = require("./styleDictionaryConfig");
 const { jsonToNestedValue } = require("./utils/jsonToNestedValue");
 
 function log(x) {
@@ -71,8 +71,10 @@ supportedThemes.map((theme) => {
   StyleDictionary.registerParser({
     pattern: /\.json$/,
     parse: ({ contents }) => {
+      const tokens = JSON.parse(contents);
       return {
-        color: JSON.parse(contents).color[theme],
+        color: tokens.color[theme],
+        // effect: tokens.effect[theme],
       };
     },
   });

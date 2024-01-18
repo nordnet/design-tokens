@@ -9,7 +9,7 @@
     "prebuild": "rimraf dist",
     "build": "npm run transform-tokens && npm run tsc:build && npm run copy:css && npm run copy:json",
     "pretransform-tokens": "rimraf src/generated",
-    "transform-tokens": "node transform/transformTokens.js",
+    "transform-tokens": "node src/transformTokens.js",
     "semantic-release": "semantic-release",
     "tsc": "tsc --noEmit",
     "tsc:build": "tsc --outDir dist/esm && tsc -m commonjs --outDir dist/cjs",
