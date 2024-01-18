@@ -25,9 +25,8 @@ function deprecateTokens(paths, interfaceString) {
   return output;
 }
 
-function javascriptEsm({ dictionary, file, options: _options, platform = {} }) {
-  const fileName = file.destination.split(".")[0];
-  const typesName = capitalizeFirstLetter(fileName);
+function javascriptEsm({ dictionary, options: _options, platform = {} }) {
+  const typeRootName = "Theme";
   const { prefix } = platform;
   const tokens = prefix ? { [prefix]: dictionary.tokens } : dictionary.tokens;
 
@@ -41,12 +40,14 @@ function javascriptEsm({ dictionary, file, options: _options, platform = {} }) {
     })
     .filter(Boolean);
 
-  const types = jsonToTs(nestedValues, { rootName: `${typesName}` }).join("\n");
+  const types = jsonToTs(nestedValues, { rootName: `${typeRootName}` }).join(
+    "\n"
+  );
   const typesWithDeprecations = deprecateTokens(pathsToDeprecatedTokens, types);
 
   const output =
     `export ${typesWithDeprecations}` +
-    `export const colors: ${typesName} = \n${JSON.stringify(
+    `export const theme: ${typeRootName} = \n${JSON.stringify(
       nestedValues,
       null,
       2

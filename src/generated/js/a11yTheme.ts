@@ -1,4 +1,4 @@
-export interface A11yTheme {
+export interface Theme {
   color: Color;
 }
 interface Color {
@@ -153,7 +153,7 @@ interface Neutral {
   icon_disabled: string;
   icon_brand: string;
 }
-export const colors: A11yTheme = {
+export const theme: Theme = {
   color: {
     neutral: {
       text_default: "#1c1c1cff",

@@ -1,4 +1,4 @@
-export interface LightTheme {
+export interface Theme {
   color: Color;
 }
 interface Color {
@@ -154,7 +154,7 @@ interface Neutral {
   icon_disabled: string;
   icon_brand: string;
 }
-export const colors: LightTheme = {
+export const theme: Theme = {
   color: {
     neutral: {
       text_default: "#1c1c1cff",
