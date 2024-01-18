@@ -2,7 +2,7 @@ const StyleDictionary = require("style-dictionary");
 const fs = require("node:fs");
 const { format } = require("prettier");
 const jsonToTs = require("json-to-ts");
-const { getConfig } = require("./styleDictionaryConfig");
+const { getConfig } = require("./config");
 const { jsonToNestedValue } = require("./utils/jsonToNestedValue");
 
 function log(x) {
