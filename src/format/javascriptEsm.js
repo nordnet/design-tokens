@@ -34,7 +34,7 @@ function javascriptEsm({ dictionary, options: _options, platform = {} }) {
 
   const pathsToDeprecatedTokens = dictionary.allTokens
     .map((token) => {
-      if (token.description.includes("[DEPRECATED]")) {
+      if (token.description && token.description.includes("[DEPRECATED]")) {
         return token.path;
       }
     })
