@@ -1,7 +1,7 @@
 const StyleDictionary = require("style-dictionary");
 const { getConfig } = require("./config");
-const { javascriptEsm } = require("./format/javascriptEsm");
-const { webShadows } = require("./transform/webShadows");
+const { javascriptEsm } = require("./src/format/javascriptEsm");
+const { webShadows } = require("./src/transform/webShadows");
 const { transform } = require("typescript");
 
 function log(x) {

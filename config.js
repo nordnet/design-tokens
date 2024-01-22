@@ -1,6 +1,6 @@
 function getConfig(theme) {
   return {
-    source: ["src/tokens/*.json"],
+    source: ["tokens/*.json"],
     platforms: {
       css: {
         transformGroup: "custom/css",

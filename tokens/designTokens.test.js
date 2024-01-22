@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const currentTokensPath = "./src/tokens/designTokens.json";
+const currentTokensPath = "./tokens/designTokens.json";
 
 describe("JSON file", () => {
   it("should contain our themes", () => {
