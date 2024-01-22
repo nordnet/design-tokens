@@ -1,6 +1,8 @@
 const { format } = require("prettier");
 const jsonToTs = require("json-to-ts");
-const { jsonToNestedValue } = require("../utils/jsonToNestedValue");
+const {
+  jsonToNestedValue,
+} = require("../../transform/utils/jsonToNestedValue");
 
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
