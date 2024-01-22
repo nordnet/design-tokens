@@ -4,11 +4,7 @@ This project turns design tokens into usable formats for our frontends. By using
 
 ## How it works
 
-Design Tokens get exported from Figma using the [Design Tokens plugin](https://www.figma.com/community/plugin/888356646278934516/Design-Tokens) which sends the data through Githubs [repository_dispatch](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#repository_dispatch) event. A Github action listens to that event and saves the data as JSON and lets [Style Dictionary](<[https://amzn.github.io/style-dictionary/](https://amzn.github.io/style-dictionary/#/README)>) transforms the tokens into the desired formats. The GitHub action then continues to create a PR with all the changes.
-
-<!-- Image below can be edited and regenerated here: https://excalidraw.com/#json=H5sU47htJ0VcgvJtEysO4,6J0pzF1Bxph6YvMYyvLX_A -->
-
-![flow](./static/flow.png)
+Design Tokens are exported as JSON from Figma using the [Design Tokens plugin](https://www.figma.com/community/plugin/888356646278934516/Design-Tokens) and pasted into the `tokens` folder in a new branch. Run `npm run transform-tokens` which instructs [Style Dictionary](<[https://amzn.github.io/style-dictionary/](https://amzn.github.io/style-dictionary/#/README)>) to transforms the tokens into our defined formats.
 
 ## Getting started
 
@@ -30,11 +26,3 @@ This project generates design tokens for each theme in the following formats:
 - **JS**: A JavaScript module that exports an object containing the design tokens.
 - **JSON**: A JSON file containing the design tokens.
 - **CSS**: A CSS file containing CSS variables for the design tokens.
-
-## Limitations
-
-GitHub Actions has a payload limit of 50kB, which prevents exporting all design tokens at once. To circumvent this limitation, we export tokens in chunks by creating a new branch for each chunk. When these new branches are merged, tests run in the master branch to verify that all themes have the same token names. Only then do we release a new version.
-
-## Handling pull requests
-
-As mentioned in the Limitations section, updates to tokens will come in chunks (usually one PR per theme). Merge these PRs together until only one PR remains, which can then be merged into the main/master branch. This approach ensures that all information regarding the update (all the chunks) can be found in one place, and in case of a breaking change, we can make a breaking change commit in a single branch. Furthermore, the release GitHub action runs only once.
