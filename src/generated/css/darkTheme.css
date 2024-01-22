@@ -1,9 +1,9 @@
 :root {
   --color-neutral-text-default: #ffffff;
   --color-neutral-text-weak: #bdbdbd;
-  --color-neutral-text-medium: #212121;
+  --color-neutral-text-medium: #1c1c1c;
   --color-neutral-text-strong: #ffffff;
-  --color-neutral-text-focus: #212121;
+  --color-neutral-text-focus: #1c1c1c;
   --color-neutral-text-disabled: #6e6e6e;
   --color-neutral-background-default: #1c1c1c;
   --color-neutral-background-weak: #121212;
@@ -14,6 +14,7 @@
   --color-neutral-background-skeleton: #333333;
   --color-neutral-background-active: #262626;
   --color-neutral-background-inactive: #333333;
+  --color-neutral-background-select: #6e6e6e;
   --color-neutral-background-focus: #ffffff;
   --color-neutral-background-focus-hover: #f5f5f5;
   --color-neutral-background-focus-pressed: #eeeeee;
@@ -128,4 +129,10 @@
   --color-accent-background-brand-pressed: #ccfcf9;
   --color-accent-icon-default: #00f0e1;
   --color-accent-icon-brand: #00f0e1;
+  --effect-shadow-low-0: 0px 0px 20px 0px #00000000;
+  --effect-shadow-low-1: 0px 0px 2px 0px #00000000;
+  --effect-shadow-medium-0: 0px 0px 20px 0px #00000000;
+  --effect-shadow-medium-1: 0px 0px 2px 0px #00000000;
+  --effect-shadow-high-0: 0px 0px 20px 0px #0000001f;
+  --effect-shadow-high-1: 0px 0px 8px 0px #00000029;
 }

@@ -14,9 +14,10 @@
   --color-neutral-background-skeleton: #eeeeee;
   --color-neutral-background-active: #ffffff;
   --color-neutral-background-inactive: #e0e0e0;
-  --color-neutral-background-focus: #212121;
-  --color-neutral-background-focus-hover: #424242;
-  --color-neutral-background-focus-pressed: #6e6e6e;
+  --color-neutral-background-select: #ffffff;
+  --color-neutral-background-focus: #1c1c1c;
+  --color-neutral-background-focus-hover: #262626;
+  --color-neutral-background-focus-pressed: #333333;
   --color-neutral-background-data: #6e6e6e;
   --color-neutral-background-brand-black: #000000;
   --color-neutral-background-brand-white: #ffffff;
@@ -128,4 +129,10 @@
   --color-accent-background-brand-pressed: #ccfcf9;
   --color-accent-icon-default: #009087;
   --color-accent-icon-brand: #00f0e1;
+  --effect-shadow-low-0: 0px 0px 20px 0px #0000000a;
+  --effect-shadow-low-1: 0px 0px 2px 0px #00000014;
+  --effect-shadow-medium-0: 0px 0px 20px 0px #0000000f;
+  --effect-shadow-medium-1: 0px 0px 2px 0px #0000001f;
+  --effect-shadow-high-0: 0px 0px 20px 0px #00000014;
+  --effect-shadow-high-1: 0px 0px 8px 0px #0000001f;
 }
