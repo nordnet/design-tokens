@@ -2,6 +2,7 @@ const StyleDictionary = require("style-dictionary");
 const { getConfig } = require("./config");
 const { javascriptEsm } = require("./format/javascriptEsm");
 const { webShadows } = require("./transform/webShadows");
+const { transform } = require("typescript");
 
 function log(x) {
   console.log(`🤖 ${x}`);
@@ -30,13 +31,19 @@ StyleDictionary.registerTransform({
   name: "custom/web/shadow",
   ...webShadows,
 });
+
 StyleDictionary.registerTransformGroup({
   name: "custom/css",
   transforms: [...StyleDictionary.transformGroup.css, "custom/web/shadow"],
 });
+
 StyleDictionary.registerTransformGroup({
   name: "custom/js",
-  transforms: [...StyleDictionary.transformGroup.js, "custom/web/shadow"],
+  transforms: [
+    ...StyleDictionary.transformGroup.js,
+    "color/css",
+    "custom/web/shadow",
+  ],
 });
 
 supportedThemes.map((theme) => {
