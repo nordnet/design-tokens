@@ -13,14 +13,14 @@ StyleDictionary.registerFilter({
   name: "validToken",
   matcher: function (token) {
     return [
-      "dimension",
-      "string",
-      "number",
+      // "dimension",
+      // "string",
+      // "number",
       "color",
-      "custom-spacing",
-      "custom-gradient",
-      "custom-fontStyle",
-      "custom-radius",
+      // "custom-spacing",
+      // "custom-gradient",
+      // "custom-fontStyle",
+      // "custom-radius",
       "custom-shadow",
     ].includes(token.type);
   },
