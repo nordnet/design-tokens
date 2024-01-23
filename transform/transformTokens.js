@@ -45,8 +45,13 @@ StyleDictionary.registerTransformGroup({
   ],
 });
 
+StyleDictionary.registerFormat({
+  name: "custom/javascript/esm",
+  formatter: javascriptEsm,
+});
+
 supportedThemes.map((theme) => {
-  log(`Compiling tokens for the ${theme.toUpperCase()} theme`);
+  log(`Processing: ${theme.toUpperCase()} theme ==========================`);
 
   StyleDictionary.registerParser({
     pattern: /\.json$/,
@@ -59,13 +64,10 @@ supportedThemes.map((theme) => {
     },
   });
 
-  StyleDictionary.registerFormat({
-    name: "custom/javascript/esm",
-    formatter: javascriptEsm,
-  });
-
   const config = getConfig(theme);
   const StyleDictionaryExtended = StyleDictionary.extend(config);
 
   StyleDictionaryExtended.buildAllPlatforms();
+
+  log("End processing\n");
 });
