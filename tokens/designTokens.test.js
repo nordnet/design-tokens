@@ -3,72 +3,93 @@ const fs = require("fs");
 const currentTokensPath = "./tokens/designTokens.json";
 
 describe("JSON file", () => {
-  it("should contain our themes", () => {
-    const data = fs.readFileSync(currentTokensPath);
-    const jsonData = JSON.parse(data);
+  describe("should have color tokens", () => {
+    it("with all our themes", () => {
+      const data = fs.readFileSync(currentTokensPath);
+      const colorTokens = JSON.parse(data).color;
 
-    expect(jsonData.color.light).toBeDefined();
-    expect(jsonData.color.dark).toBeDefined();
-    expect(jsonData.color.a11y).toBeDefined();
-  });
+      expect(colorTokens.light).toBeDefined();
+      expect(colorTokens.dark).toBeDefined();
+      expect(colorTokens.a11y).toBeDefined();
+    });
 
-  it("light and dark themes should have the same categories", () => {
-    const data = fs.readFileSync(currentTokensPath);
-    const colorTokens = JSON.parse(data).color;
+    it("with the same categories", () => {
+      const data = fs.readFileSync(currentTokensPath);
+      const colorTokens = JSON.parse(data).color;
 
-    const lightKeys = Object.keys(colorTokens.light).sort();
-    const darkKeys = Object.keys(colorTokens.dark).sort();
+      const lightKeys = Object.keys(colorTokens.light).sort();
+      const darkKeys = Object.keys(colorTokens.dark).sort();
+      const a11yKeys = Object.keys(colorTokens.a11y).sort();
 
-    expect(lightKeys).toEqual(darkKeys);
-  });
+      expect(lightKeys).toEqual(darkKeys);
+      expect(lightKeys).toEqual(a11yKeys);
+    });
 
-  it("light and ally themes should have the same categories", () => {
-    const data = fs.readFileSync(currentTokensPath);
-    const colorTokens = JSON.parse(data).color;
+    it("with the same token names", () => {
+      const data = fs.readFileSync(currentTokensPath);
+      const colorTokens = JSON.parse(data).color;
 
-    const lightKeys = Object.keys(colorTokens.light).sort();
-    const a11yKeys = Object.keys(colorTokens.a11y).sort();
+      const lightKeys = Object.keys(colorTokens.light).sort();
 
-    expect(lightKeys).toEqual(a11yKeys);
-  });
+      lightKeys.forEach((key) => {
+        const tokenNamesLight = Object.keys(colorTokens.light[key])
+          .sort()
+          .map((x) => `${key}.${x}`);
+        const tokenNamesDark = Object.keys(colorTokens.dark[key])
+          .sort()
+          .map((x) => `${key}.${x}`);
+        const tokenNamesA11y = Object.keys(colorTokens.a11y[key])
+          .sort()
+          .map((x) => `${key}.${x}`);
 
-  it("light and dark themes should have the same token names", () => {
-    const data = fs.readFileSync(currentTokensPath);
-    const colorTokens = JSON.parse(data).color;
-
-    const lightKeys = Object.keys(colorTokens.light).sort();
-
-    lightKeys.forEach((key) => {
-      expect(Object.keys(colorTokens.dark[key]).sort()).toEqual(
-        Object.keys(colorTokens.light[key]).sort()
-      );
-
-      const lightThemeTokenNames = Object.keys(colorTokens.light[key])
-        .sort()
-        .map((x) => `${key}.${x}`);
-      const darkThemeTokenNames = Object.keys(colorTokens.dark[key])
-        .sort()
-        .map((x) => `${key}.${x}`);
-
-      expect(lightThemeTokenNames).toEqual(darkThemeTokenNames);
+        expect(tokenNamesLight).toEqual(tokenNamesDark);
+        expect(tokenNamesLight).toEqual(tokenNamesA11y);
+      });
     });
   });
 
-  it("light and a11y themes should have the same token names", () => {
-    const data = fs.readFileSync(currentTokensPath);
-    const colorTokens = JSON.parse(data).color;
+  describe("should have effect tokens", () => {
+    it("with all our themes", () => {
+      const data = fs.readFileSync(currentTokensPath);
+      const effectTokens = JSON.parse(data).effect;
 
-    const lightKeys = Object.keys(colorTokens.light).sort();
+      expect(effectTokens.light).toBeDefined();
+      expect(effectTokens.dark).toBeDefined();
+      expect(effectTokens.a11y).toBeDefined();
+    });
 
-    lightKeys.forEach((key) => {
-      const lightThemeTokenNames = Object.keys(colorTokens.light[key])
-        .sort()
-        .map((x) => `${key}.${x}`);
-      const a11yThemeTokenNames = Object.keys(colorTokens.a11y[key])
-        .sort()
-        .map((x) => `${key}.${x}`);
+    it("with the same categories", () => {
+      const data = fs.readFileSync(currentTokensPath);
+      const effectTokens = JSON.parse(data).effect;
 
-      expect(lightThemeTokenNames).toEqual(a11yThemeTokenNames);
+      const lightKeys = Object.keys(effectTokens.light).sort();
+      const darkKeys = Object.keys(effectTokens.dark).sort();
+      const a11yKeys = Object.keys(effectTokens.a11y).sort();
+
+      expect(lightKeys).toEqual(darkKeys);
+      expect(lightKeys).toEqual(a11yKeys);
+    });
+
+    it("with the same token names", () => {
+      const data = fs.readFileSync(currentTokensPath);
+      const effectTokens = JSON.parse(data).effect;
+
+      const lightKeys = Object.keys(effectTokens.light).sort();
+
+      lightKeys.forEach((key) => {
+        const tokenNamesLight = Object.keys(effectTokens.light[key])
+          .sort()
+          .map((x) => `${key}.${x}`);
+        const tokenNamesDark = Object.keys(effectTokens.dark[key])
+          .sort()
+          .map((x) => `${key}.${x}`);
+        const tokenNamesA11y = Object.keys(effectTokens.a11y[key])
+          .sort()
+          .map((x) => `${key}.${x}`);
+
+        expect(tokenNamesLight).toEqual(tokenNamesDark);
+        expect(tokenNamesLight).toEqual(tokenNamesA11y);
+      });
     });
   });
 });
