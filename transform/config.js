@@ -17,7 +17,8 @@ function getConfig(theme) {
         ],
       },
       json: {
-        transformGroup: "custom/js",
+        transformGroup: "js",
+        transforms: ["name/cti/camel", "custom/web/shadow"],
         buildPath: `src/generated/json/`,
         files: [
           {
@@ -28,7 +29,8 @@ function getConfig(theme) {
         ],
       },
       js: {
-        transformGroup: "custom/js",
+        transformGroup: "js",
+        transforms: ["name/cti/camel", "custom/web/shadow"],
         buildPath: `src/generated/js/`,
         files: [
           {

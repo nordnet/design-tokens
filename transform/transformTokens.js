@@ -36,15 +36,6 @@ StyleDictionary.registerTransformGroup({
   transforms: [...StyleDictionary.transformGroup.css, "custom/web/shadow"],
 });
 
-StyleDictionary.registerTransformGroup({
-  name: "custom/js",
-  transforms: [
-    ...StyleDictionary.transformGroup.js,
-    "color/css",
-    "custom/web/shadow",
-  ],
-});
-
 StyleDictionary.registerFormat({
   name: "custom/javascript/esm",
   formatter: javascriptEsm,
