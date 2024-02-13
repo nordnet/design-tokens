@@ -148,6 +148,7 @@ interface Neutral {
   background_focus: string;
   background_focus_hover: string;
   background_focus_pressed: string;
+  background_badge: string;
   background_data: string;
   background_brand_black: string;
   background_brand_white: string;
@@ -190,14 +191,15 @@ export const theme: Theme = {
       background_focus: "#1c1c1c",
       background_focus_hover: "#262626",
       background_focus_pressed: "#333333",
+      background_badge: "#333333",
       background_data: "#6e6e6e",
       background_brand_black: "#000000",
       background_brand_white: "#ffffff",
       background_overlay: "#000000",
       border_default: "#bdbdbd",
       border_weak: "#eeeeee",
-      border_medium: "#eeeeee",
-      border_strong: "#e0e0e0",
+      border_medium: "#e0e0e0",
+      border_strong: "#f5f5f5",
       border_active: "#1c1c1c",
       border_focus: "#ffffff",
       border_disabled: "#eeeeee",
