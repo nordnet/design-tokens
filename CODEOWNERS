@@ -1,2 +1,2 @@
-src/generated/css/*     @nordnet/design
 *                       @nordnet/ui-circle
+src/generated/css/*     @nordnet/ui-circle @nordnet/design
