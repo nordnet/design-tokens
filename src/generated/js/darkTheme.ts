@@ -1,5 +1,18 @@
-export interface DarkTheme {
+export interface Theme {
   color: Color;
+  effect: Effect;
+}
+interface Effect {
+  shadow: Shadow;
+}
+interface Shadow {
+  low: Low;
+  medium: Low;
+  high: Low;
+}
+interface Low {
+  "0": string;
+  "1": string;
 }
 interface Color {
   neutral: Neutral;
@@ -130,9 +143,11 @@ interface Neutral {
   background_skeleton: string;
   background_active: string;
   background_inactive: string;
+  background_select: string;
   background_focus: string;
   background_focus_hover: string;
   background_focus_pressed: string;
+  background_badge: string;
   background_data: string;
   background_brand_black: string;
   background_brand_white: string;
@@ -153,14 +168,14 @@ interface Neutral {
   icon_disabled: string;
   icon_brand: string;
 }
-export const colors: DarkTheme = {
+export const theme: Theme = {
   color: {
     neutral: {
       text_default: "#ffffffff",
       text_weak: "#bdbdbdff",
-      text_medium: "#212121ff",
+      text_medium: "#1c1c1cff",
       text_strong: "#ffffffff",
-      text_focus: "#212121ff",
+      text_focus: "#1c1c1cff",
       text_disabled: "#6e6e6eff",
       background_default: "#1c1c1cff",
       background_weak: "#121212ff",
@@ -171,17 +186,19 @@ export const colors: DarkTheme = {
       background_skeleton: "#333333ff",
       background_active: "#262626ff",
       background_inactive: "#333333ff",
+      background_select: "#6e6e6eff",
       background_focus: "#ffffffff",
       background_focus_hover: "#f5f5f5ff",
       background_focus_pressed: "#eeeeeeff",
+      background_badge: "#333333ff",
       background_data: "#bdbdbdff",
       background_brand_black: "#000000ff",
       background_brand_white: "#ffffffff",
       background_overlay: "#00000099",
       border_default: "#6e6e6eff",
-      border_weak: "#262626ff",
+      border_weak: "#333333ff",
       border_medium: "#333333ff",
-      border_strong: "#333333ff",
+      border_strong: "#000000ff",
       border_active: "#ffffffff",
       border_focus: "#1c1c1cff",
       border_disabled: "#333333ff",
@@ -297,6 +314,22 @@ export const colors: DarkTheme = {
       background_brand_pressed: "#ccfcf9ff",
       icon_default: "#00f0e1ff",
       icon_brand: "#00f0e1ff",
+    },
+  },
+  effect: {
+    shadow: {
+      low: {
+        "0": "0px 0px 20px 0px #00000000",
+        "1": "0px 0px 2px 0px #00000000",
+      },
+      medium: {
+        "0": "0px 0px 20px 0px #00000000",
+        "1": "0px 0px 2px 0px #00000000",
+      },
+      high: {
+        "0": "0px 0px 20px 0px #0000001f",
+        "1": "0px 0px 8px 0px #00000029",
+      },
     },
   },
 };

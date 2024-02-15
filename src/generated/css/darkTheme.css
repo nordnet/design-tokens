@@ -1,9 +1,9 @@
 :root {
   --color-neutral-text-default: #ffffff;
   --color-neutral-text-weak: #bdbdbd;
-  --color-neutral-text-medium: #212121;
+  --color-neutral-text-medium: #1c1c1c;
   --color-neutral-text-strong: #ffffff;
-  --color-neutral-text-focus: #212121;
+  --color-neutral-text-focus: #1c1c1c;
   --color-neutral-text-disabled: #6e6e6e;
   --color-neutral-background-default: #1c1c1c;
   --color-neutral-background-weak: #121212;
@@ -14,17 +14,19 @@
   --color-neutral-background-skeleton: #333333;
   --color-neutral-background-active: #262626;
   --color-neutral-background-inactive: #333333;
+  --color-neutral-background-select: #6e6e6e;
   --color-neutral-background-focus: #ffffff;
   --color-neutral-background-focus-hover: #f5f5f5;
   --color-neutral-background-focus-pressed: #eeeeee;
+  --color-neutral-background-badge: #333333;
   --color-neutral-background-data: #bdbdbd;
   --color-neutral-background-brand-black: #000000;
   --color-neutral-background-brand-white: #ffffff;
   --color-neutral-background-overlay: rgba(0, 0, 0, 0.6);
   --color-neutral-border-default: #6e6e6e;
-  --color-neutral-border-weak: #262626;
+  --color-neutral-border-weak: #333333;
   --color-neutral-border-medium: #333333;
-  --color-neutral-border-strong: #333333;
+  --color-neutral-border-strong: #000000;
   --color-neutral-border-active: #ffffff;
   --color-neutral-border-focus: #1c1c1c;
   --color-neutral-border-disabled: #333333;
@@ -128,4 +130,10 @@
   --color-accent-background-brand-pressed: #ccfcf9;
   --color-accent-icon-default: #00f0e1;
   --color-accent-icon-brand: #00f0e1;
+  --effect-shadow-low-0: 0px 0px 20px 0px #00000000;
+  --effect-shadow-low-1: 0px 0px 2px 0px #00000000;
+  --effect-shadow-medium-0: 0px 0px 20px 0px #00000000;
+  --effect-shadow-medium-1: 0px 0px 2px 0px #00000000;
+  --effect-shadow-high-0: 0px 0px 20px 0px #0000001f;
+  --effect-shadow-high-1: 0px 0px 8px 0px #00000029;
 }

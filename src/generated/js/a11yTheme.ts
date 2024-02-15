@@ -1,5 +1,18 @@
-export interface A11yTheme {
+export interface Theme {
   color: Color;
+  effect: Effect;
+}
+interface Effect {
+  shadow: Shadow;
+}
+interface Shadow {
+  low: Low;
+  medium: Low;
+  high: Low;
+}
+interface Low {
+  "0": string;
+  "1": string;
 }
 interface Color {
   neutral: Neutral;
@@ -130,9 +143,11 @@ interface Neutral {
   background_skeleton: string;
   background_active: string;
   background_inactive: string;
+  background_select: string;
   background_focus: string;
   background_focus_hover: string;
   background_focus_pressed: string;
+  background_badge: string;
   background_data: string;
   background_brand_black: string;
   background_brand_white: string;
@@ -153,7 +168,7 @@ interface Neutral {
   icon_disabled: string;
   icon_brand: string;
 }
-export const colors: A11yTheme = {
+export const theme: Theme = {
   color: {
     neutral: {
       text_default: "#1c1c1cff",
@@ -171,17 +186,19 @@ export const colors: A11yTheme = {
       background_skeleton: "#eeeeeeff",
       background_active: "#ffffffff",
       background_inactive: "#e0e0e0ff",
-      background_focus: "#212121ff",
-      background_focus_hover: "#424242ff",
-      background_focus_pressed: "#6e6e6eff",
+      background_select: "#ffffffff",
+      background_focus: "#1c1c1cff",
+      background_focus_hover: "#262626ff",
+      background_focus_pressed: "#333333ff",
+      background_badge: "#333333ff",
       background_data: "#6e6e6eff",
       background_brand_black: "#000000ff",
       background_brand_white: "#ffffffff",
       background_overlay: "#00000066",
       border_default: "#bdbdbdff",
       border_weak: "#eeeeeeff",
-      border_medium: "#eeeeeeff",
-      border_strong: "#e0e0e0ff",
+      border_medium: "#e0e0e0ff",
+      border_strong: "#f5f5f5ff",
       border_active: "#1c1c1cff",
       border_focus: "#ffffffff",
       border_disabled: "#eeeeeeff",
@@ -297,6 +314,22 @@ export const colors: A11yTheme = {
       background_brand_pressed: "#ccfcf9ff",
       icon_default: "#009087ff",
       icon_brand: "#00f0e1ff",
+    },
+  },
+  effect: {
+    shadow: {
+      low: {
+        "0": "0px 0px 20px 0px #0000000a",
+        "1": "0px 0px 2px 0px #00000014",
+      },
+      medium: {
+        "0": "0px 0px 20px 0px #0000000f",
+        "1": "0px 0px 2px 0px #0000001f",
+      },
+      high: {
+        "0": "0px 0px 20px 0px #00000014",
+        "1": "0px 0px 8px 0px #0000001f",
+      },
     },
   },
 };

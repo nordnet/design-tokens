@@ -1,117 +1,57 @@
 const StyleDictionary = require("style-dictionary");
-const fs = require("node:fs");
-const { format } = require("prettier");
-const jsonToTs = require("json-to-ts");
-const { getConfig } = require("./config");
-const { jsonToNestedValue } = require("./utils/jsonToNestedValue");
+const { getConfig } = require("./config.js");
+const { javascriptEsm } = require("./format/javascriptEsm");
+const { webShadows } = require("./transform/webShadows");
 
 function log(x) {
   console.log(`🤖 ${x}`);
 }
 
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-function addDeprecationComment(interfaceString, category, propertyName) {
-  const regex = new RegExp(`(?<=${category} {[\\s\\S]*?)${propertyName}`);
-  return interfaceString.replace(regex, "/** @deprecated */\n" + propertyName);
-}
-
-function deprecateTokens(paths, interfaceString) {
-  let output = interfaceString;
-  paths.forEach((path) => {
-    const interfaceName = path[path.length - 2];
-    const propertyName = path[path.length - 1];
-    output = addDeprecationComment(
-      output,
-      capitalizeFirstLetter(interfaceName),
-      propertyName
-    );
-  });
-  return output;
-}
-
 const supportedThemes = ["light", "dark", "a11y"];
-const incomingUpdatesDirPath = "./tokens/updates";
-const currentTokensPath = "./tokens/designTokens.json";
 
-if (fs.existsSync(incomingUpdatesDirPath)) {
-  const incomingUpdatesFileNames = fs.readdirSync(incomingUpdatesDirPath);
+StyleDictionary.registerFilter({
+  name: "validToken",
+  matcher: function (token) {
+    return [
+      // "dimension",
+      // "string",
+      // "number",
+      "color",
+      // "custom-spacing",
+      // "custom-gradient",
+      // "custom-fontStyle",
+      // "custom-radius",
+      "custom-shadow",
+    ].includes(token.type);
+  },
+});
 
-  incomingUpdatesFileNames.map((fileName) => {
-    const incomingUpdatesFilePath = `${incomingUpdatesDirPath}/${fileName}`;
-    const incomingUpdatesFile = fs.readFileSync(incomingUpdatesFilePath);
-    const incomingUpdates = JSON.parse(incomingUpdatesFile);
-    const themesToReplace = Object.keys(incomingUpdates.color);
+StyleDictionary.registerTransform({
+  name: "custom/web/shadow",
+  ...webShadows,
+});
 
-    const currentTokensFile = fs.readFileSync(currentTokensPath);
-    const currentTokens = JSON.parse(currentTokensFile);
-    let updatedTokens = currentTokens;
+StyleDictionary.registerTransformGroup({
+  name: "custom/css",
+  transforms: [...StyleDictionary.transformGroup.css, "custom/web/shadow"],
+});
 
-    themesToReplace.map((theme) => {
-      updatedTokens.color[theme] = incomingUpdates.color[theme];
-    });
-
-    const updatedTokensJson = JSON.stringify(updatedTokens, null, 2);
-    fs.writeFileSync(currentTokensPath, updatedTokensJson);
-    log("Updated tokens");
-
-    fs.unlink(incomingUpdatesFilePath, (err) => {
-      if (err) {
-        throw err;
-      }
-    });
-  });
-}
+StyleDictionary.registerFormat({
+  name: "custom/javascript/esm",
+  formatter: javascriptEsm,
+});
 
 supportedThemes.map((theme) => {
-  log(`Compiling tokens for the ${theme.toUpperCase()} theme`);
+  log(`Processing: ${theme.toUpperCase()} theme ==========================`);
 
   StyleDictionary.registerParser({
     pattern: /\.json$/,
     parse: ({ contents }) => {
+      const tokens = JSON.parse(contents);
       return {
-        color: JSON.parse(contents).color[theme],
+        color: tokens.color[theme],
+        effect: tokens.effect[theme],
       };
-    },
-  });
-
-  StyleDictionary.registerFormat({
-    name: "custom/javascript/esm",
-    formatter: function ({ dictionary, options: _options, platform = {} }) {
-      const typesName = `${capitalizeFirstLetter(theme)}Theme`;
-      const { prefix } = platform;
-      const tokens = prefix
-        ? { [prefix]: dictionary.tokens }
-        : dictionary.tokens;
-
-      const nestedValues = jsonToNestedValue(tokens);
-
-      const pathsToDeprecatedTokens = dictionary.allTokens
-        .map((token) => {
-          if (token.description.includes("[DEPRECATED]")) {
-            return token.path;
-          }
-        })
-        .filter(Boolean);
-
-      const types = jsonToTs(nestedValues, { rootName: `${typesName}` }).join(
-        "\n"
-      );
-      const typesWithDeprecations = deprecateTokens(
-        pathsToDeprecatedTokens,
-        types
-      );
-
-      const output =
-        `export ${typesWithDeprecations}` +
-        `export const colors: ${typesName} = \n${JSON.stringify(
-          nestedValues,
-          null,
-          2
-        )}\n`;
-      return format(output, { parser: "typescript", printWidth: 500 });
     },
   });
 
@@ -119,4 +59,6 @@ supportedThemes.map((theme) => {
   const StyleDictionaryExtended = StyleDictionary.extend(config);
 
   StyleDictionaryExtended.buildAllPlatforms();
+
+  log("End processing\n");
 });
