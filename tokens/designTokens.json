@@ -1893,7 +1893,7 @@
         "border_weak": {
           "description": "",
           "type": "color",
-          "value": "#333333ff",
+          "value": "#262626ff",
           "blendMode": "normal",
           "extensions": {
             "org.lukasoppermann.figmaDesignTokens": {
