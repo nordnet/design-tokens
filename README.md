@@ -8,16 +8,43 @@ Design Tokens are exported as JSON from Figma using the [Design Tokens plugin](h
 
 ## Getting started
 
-For local development, follow these steps:
+For local development, please follow these steps:
 
-1. Run `npm i` to install dependencies.
-2. Run `npm run transform-tokens` to transform tokens using [Style Dictionary](https://amzn.github.io/style-dictionary/#/README).
-3. The converted tokens will be saved in the `src/generated` directory.
+1. **Install Dependencies:** Begin by installing all required dependencies. Open your terminal, navigate to the project's root directory, and execute:
 
-If you only want to use the themes provided by this project then simply import them into your codebase like this:
+```sh
+npm install
+```
 
-1. Run `npm install -D @nordnet/design-tokens` to install the package.
-2. Import for example the lightTheme `import { lightTheme } from '@nordnet/design-tokens'`.
+2. **Transform Design Tokens:** Next, transform your design tokens using [Style Dictionary](https://amzn.github.io/style-dictionary/#/README). This step converts our JSON-formatted tokens into usable formats for different platforms. Run the following command:
+
+```sh
+npm run transform-tokens
+```
+
+**Note:** If you are contributing via a pull request and your changes involve modifications to any tokens/\*.json files, the project's GitHub Actions workflow will automatically perform this transformation step for you. This ensures that your contributions are seamlessly integrated without requiring manual token transformation.
+
+3. **Access Generated Tokens:** After transformation, the generated tokens can be found within the src/generated directory.
+
+## Usage the themes
+
+If you want to utilize the themes provided by this repository, you can integrate them into your codebase like this:
+
+1. **Install the Design Tokens Package:** Add the design tokens to your project by running the following command:
+
+```sh
+npm install -D @nordnet/design-tokens
+```
+
+This installs the `@nordnet/design-tokens` package as a development dependency.
+
+2. **Import the desired theme:** You can now import the themes directly into your project. For example, to use the light theme, add the following import statement to your code:
+
+```sh
+import { lightTheme } from '@nordnet/design-tokens'
+```
+
+Replace `lightTheme` with any other theme provided by the package as necessary.
 
 ## Formats
 
