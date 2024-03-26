@@ -3,8 +3,9 @@
   --color-neutral-text-weak: #bdbdbd;
   --color-neutral-text-medium: #1c1c1c;
   --color-neutral-text-strong: #ffffff;
-  --color-neutral-text-focus: #1c1c1c;
   --color-neutral-text-disabled: #6e6e6e;
+  --color-neutral-text-focus: #1c1c1c;
+  --color-neutral-text-inactive: #9e9e9e;
   --color-neutral-background-default: #1c1c1c;
   --color-neutral-background-weak: #121212;
   --color-neutral-background-medium: #262626;
@@ -38,6 +39,7 @@
   --color-neutral-icon-strong: #ffffff;
   --color-neutral-icon-disabled: #6e6e6e;
   --color-neutral-icon-brand: #1c1c1c;
+  --color-neutral-icon-inactive: #9e9e9e;
   --color-action-text-default: #6690ff;
   --color-action-text-medium: #ffffff;
   --color-action-text-focus: #336bff;
@@ -71,7 +73,7 @@
   --color-negative-text-hover: #ff6aa8;
   --color-negative-text-pressed: #ffaacd;
   --color-negative-background-default: #cc2269;
-  --color-negative-background-weak: #590f2e;
+  --color-negative-background-weak: #3e0b20;
   --color-negative-background-medium: #ff2b83;
   --color-negative-background-strong: #ac135a;
   --color-negative-background-data-graph: #ac135a;
@@ -90,7 +92,7 @@
   --color-positive-text-medium: #d2f500;
   --color-positive-text-hover: #85da62;
   --color-positive-background-default: #51cb20;
-  --color-positive-background-weak: #20510d;
+  --color-positive-background-weak: #133108;
   --color-positive-background-medium: #85da62;
   --color-positive-background-strong: #41a21a;
   --color-positive-background-data: #317a13;
