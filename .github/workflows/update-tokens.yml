@@ -1,0 +1,39 @@
+name: Generate Design Tokens
+
+on:
+  pull_request:
+    paths:
+      - "tokens/*.json"
+
+jobs:
+  generate_tokens:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+
+      - name: Node and npm version
+        run: node -v && npm -v
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate tokens
+        run: npm run transform-tokens
+
+      - name: Commit Generated Platform Deliverables
+        uses: stefanzweifel/git-auto-commit-action@v5
+        id: auto-commit-action
+        with:
+          commit_message: "chore: update generated files"
+
+      - name: "If no changes have been detected"
+        if: steps.auto-commit-action.outputs.changes_detected == 'false'
+        run: echo "No Changes were detected"
