@@ -132,8 +132,9 @@ interface Neutral {
   text_weak: string;
   text_medium: string;
   text_strong: string;
-  text_focus: string;
   text_disabled: string;
+  text_focus: string;
+  text_inactive: string;
   background_default: string;
   background_weak: string;
   background_medium: string;
@@ -168,6 +169,7 @@ interface Neutral {
   icon_strong: string;
   icon_disabled: string;
   icon_brand: string;
+  icon_inactive: string;
 }
 export const theme: Theme = {
   color: {
@@ -176,8 +178,9 @@ export const theme: Theme = {
       text_weak: "#6e6e6eff",
       text_medium: "#ffffffff",
       text_strong: "#ffffffff",
-      text_focus: "#1c1c1cff",
       text_disabled: "#9e9e9eff",
+      text_focus: "#1c1c1cff",
+      text_inactive: "#9e9e9eff",
       background_default: "#ffffffff",
       background_weak: "#ffffffff",
       background_medium: "#f5f5f5ff",
@@ -211,6 +214,7 @@ export const theme: Theme = {
       icon_strong: "#ffffffff",
       icon_disabled: "#9e9e9eff",
       icon_brand: "#1c1c1cff",
+      icon_inactive: "#9e9e9eff",
     },
     action: {
       text_default: "#336bffff",
